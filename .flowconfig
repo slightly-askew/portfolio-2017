@@ -1,6 +1,7 @@
 [ignore]
 .*/stylelint/lib/.*
 .*/polished/src/.*
+.*/styled-componenets/src/.*
 
 [include]
 
