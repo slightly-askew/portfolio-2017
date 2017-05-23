@@ -1,7 +1,7 @@
 {
-  "name": "bp-js-may17",
+  "name": "portfolio2017",
   "version": "0.0.1",
-  "description": "Boilerplate with Create React App, Redux, Flow, RouterV4",
+  "description": "My portfolio",
   "main": "index.js",
   "repository": "https://github.com/slightly-askew/BP-JS-May17.git",
   "author": "slightly-askew <oaskew@gmail.com>",
