@@ -1,3 +1,4 @@
 import React from "react";
+import Header from "../features/header";
 
-export default props => <h1>Welcome to the boilerplate</h1>;
+export default props => <Header />;
