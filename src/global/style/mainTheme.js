@@ -1,8 +1,17 @@
+import { baseAdjust } from "./utils";
+
 export default {
-  Type: {
-    Title: '"Fira Sans", Helvetica, sans-serif',
-    Heading: '"Montserrat", Roboto, sans-serif',
-    Paragraph: '"Karla", Helvetica, sans-serif',
-    Label: '"Fira Mono", monospace'
-  }
+  type: {
+    title: `
+      font-family: "Fira Sans", Helvetica, sans-serif;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      ${baseAdjust(2)};
+    `,
+    heading: '"Montserrat", Roboto, sans-serif',
+    paragraph: '"Karla", Helvetica, sans-serif',
+    label: '"Fira Mono", monospace'
+  },
+
+  scales: {}
 };
