@@ -1,7 +1,11 @@
 [ignore]
+.*/styled-components/src/.*
+.*/styled-components/lib/.*
+.*/styled-components/dangerfile.js
 .*/stylelint/lib/.*
 .*/polished/src/.*
 .*/styled-componenets/src/.*
+.*/eslint-plugin-jsx-a11y/.*
 
 [include]
 
