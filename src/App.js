@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "./data/actions/actionCreators";
 import insertGlobalStyles from "./global/style/globalStyles";
 
-import Main from "./scenes/Main";
+import { Main } from "./scenes/Main";
 
 function mapStateToProps(): {} {
   return {};

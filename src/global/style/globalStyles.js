@@ -28,6 +28,9 @@ export default () => injectGlobal`
   body {
     padding: 0;
     margin: 0;
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures contextual;
+    font-feature-settings: "kern", "liga", "clig", "calt";
   }
   *:focus {
     outline: none;
