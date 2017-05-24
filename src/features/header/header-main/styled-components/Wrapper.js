@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 
-export default styled.div`
+export const Wrapper = styled.div`
 
   box-sizing: border-box;
   position: relative;

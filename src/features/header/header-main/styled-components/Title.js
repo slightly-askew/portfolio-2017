@@ -2,7 +2,7 @@
 
 import styled, { css } from "styled-components";
 
-export default styled.h1`
+export const Title = styled.h1`
 
   ${({ theme }: { theme: () => string }) => css`
 
