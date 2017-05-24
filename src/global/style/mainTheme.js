@@ -1,3 +1,5 @@
+//@flow
+
 import { baseAdjust } from "./utils";
 import { modularScale } from "polished";
 
@@ -35,20 +37,16 @@ export default {
     `
   },
 
-  scales: {
-    majSecond: (n: number = 1): ((?*) => string) =>
-      modularScale(n, "1em", "majorSecond"),
-    majThird: (n: number = 1): ((?*) => string) =>
-      modularScale(n, "1em", "majThird"),
-    perfFourth: (n: number = 1): ((?*) => string) =>
-      modularScale(n, "1em", "perfectFourth"),
-    perfFifth: (n: number = 1): ((?*) => string) =>
-      modularScale(n, "1em", "perfectFifth")
+  scale: {
+    s1: (n: number = 1): string => modularScale(n, "1em", "majorSecond"),
+    s2: (n: number = 1): string => modularScale(n, "1em", "majorThird"),
+    s3: (n: number = 1): string => modularScale(n, "1em", "perfectFourth"),
+    s4: (n: number = 1): string => modularScale(n, "1em", "perfectFifth")
   },
 
   color: {
-    background: "#fafafa",
-    black: "#0b0b0b",
+    background: "#fbfbfb",
+    black: "#141414",
     primary: "blue"
   }
 };
