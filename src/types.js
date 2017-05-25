@@ -14,6 +14,6 @@ declare type Theme = {
 
 declare var module: {
   hot: {
-    accept(path: Class<React$Component<*, *, *>>, callback: () => void): void
+    accept(path: string, callback: () => void): void
   }
 };
