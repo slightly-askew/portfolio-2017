@@ -1,16 +1,19 @@
 //@flow
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
 
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  background-color: #eee;
-  padding-top: 0.5em;
+  ${({ theme }: { theme: () => string }) => css`
 
-  @media (min-width: 400px) {
-    padding-top: 0em;
-  }
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    background-color: ${theme.color.background};
+    padding-top: ${theme.scale.s4(-1)};
+
+    @media (min-width: 675px) {
+      padding-top: 0;
+    }
+  `}
 `;
