@@ -4,9 +4,8 @@ import { createStore, compose, applyMiddleware } from "redux";
 import { routerMiddleware } from "react-router-redux";
 import createHistory from "history/createBrowserHistory";
 import reducers from "./data/reducers";
-import cards from "./data/state/cards";
 
-const defaultState = { cards };
+const defaultState = {};
 export const history = createHistory();
 
 const middlewares = [routerMiddleware(history)];
