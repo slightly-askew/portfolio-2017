@@ -12,7 +12,7 @@
 [libs]
 # This is where your own flow-typed libdefs go
 flow-typed
-
+src/types.js
 node_modules/styled-components/flow-typed/react-native.js
 node_modules/styled-components/flow-typed/glamor_vx.x.x.js
 node_modules/styled-components/flow-typed/lodash_v4.x.x.js
@@ -20,8 +20,7 @@ node_modules/styled-components/flow-typed/inline-style-prefixer_vx.x.x.js
 
 [options]
 
-unsafe.enable_getters_and_setters=true
-#styled-components lib errors
+
 suppress_comment=.*\\$FlowFixMe
 #polished lib errors
 suppress_comment=.*\\$FlowIgnoreNextLine

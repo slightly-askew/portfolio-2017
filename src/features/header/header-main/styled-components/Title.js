@@ -2,16 +2,17 @@
 
 import styled, { css } from "styled-components";
 
-export default styled.h1`
+export const Title = styled.h1`
 
-  ${({ theme }: { theme: () => string }) => css`
-
+  ${({ theme }: { theme: Theme }) => css`
+  
     ${theme.type.title};
+    font-size: ${theme.scale.s3(3)};
+    color: ${theme.color.black};
+
     text-align: center;
-    font-size: 4em;
     line-height: 1;
     margin: 0;
-    color: #131313;
     cursor: pointer;
 
   `}
