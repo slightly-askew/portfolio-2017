@@ -11,3 +11,9 @@ declare type Theme = {
     ["background" | "black" | "primary"]: string
   }
 };
+
+declare var module: {
+  hot: {
+    accept(path: Class<React$Component<*, *, *>>, callback: () => void): void
+  }
+};
