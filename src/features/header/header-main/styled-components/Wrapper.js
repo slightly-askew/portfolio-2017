@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
 
-  ${({ theme }: { theme: () => string }) => css`
+  ${({ theme }: { theme: Theme }) => css`
 
     box-sizing: border-box;
     position: relative;
