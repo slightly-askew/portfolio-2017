@@ -4,8 +4,9 @@ import { createStore, compose, applyMiddleware } from "redux";
 import { routerMiddleware } from "react-router-redux";
 import createHistory from "history/createBrowserHistory";
 import reducers from "./data/reducers";
+import cards from "./data/state/cards";
 
-const defaultState = {};
+const defaultState = { cards };
 export const history = createHistory();
 
 const middlewares = [routerMiddleware(history)];
@@ -23,13 +24,10 @@ const enhancers = compose(
 
 const store = createStore(reducers, defaultState, enhancers);
 
-export default function configureStore() {
-  const store = createStore(reducers, defaultState, enhancers);
-
-  if (module.hot) {
-    module.hot.accept(reducers, () => {
-      const nextRootReducer = require("./data/reducers").default;
-      store.replaceReducer(nextRootReducer);
-    });
-  }
+if (module.hot) {
+  module.hot.accept("./data/reducers", () => {
+    store.replaceReducer(reducers);
+  });
 }
+
+export default store;
