@@ -1,7 +1,7 @@
 //@flow
 
 import { baseAdjust } from "./utils";
-import { modularScale } from "polished";
+import { modularScale, lighten } from "polished";
 
 export default {
   type: {
@@ -30,7 +30,7 @@ export default {
     label: `
       font-family: "Fira Mono", monospace';
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: -0.02em;
       font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
       font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
       ${baseAdjust(0.2)};
@@ -51,3 +51,7 @@ export default {
     primary: "blue"
   }
 };
+
+effect: {
+  lighten: (a: number, c: string) => lighten(a, c);
+}
