@@ -8,7 +8,7 @@ declare type Theme = {
     ["title" | "heading" | "paragraph" | "label"]: string
   },
   scale: {
-    ["s1" | "s2" | "s3" | "s4"]: (n: number) => string
+    ["s1" | "s2" | "s3" | "s4" | "s8"]: (n?: number) => string
   },
   color: {
     ["background" | "black" | "primary"]: string

@@ -14,7 +14,7 @@ export default {
       ${baseAdjust(2)};
     `,
     heading: `
-      font-family: "Montserrat:700", Roboto, sans-serif;
+      font-family: "Montserrat", Roboto, sans-serif;
       font-weight: 700;
       letter-spacing: 0.04em;
       font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
@@ -22,13 +22,13 @@ export default {
       ${baseAdjust(0.4)};
     `,
     paragraph: `
-      font-family: "Karla:400", Helvetica, sans-serif;
+      font-family: "Karla", Helvetica, sans-serif;
       font-weight: 700;
       letter-spacing: 0.04em;
       font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
     `,
     label: `
-      font-family: "Fira Mono:400", monospace';
+      font-family: "Fira Mono", monospace';
       font-weight: 700;
       letter-spacing: 0.04em;
       font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
@@ -38,10 +38,11 @@ export default {
   },
 
   scale: {
-    s1: (n: number = 1): string => modularScale(n, "1em", "majorSecond"),
     s2: (n: number = 1): string => modularScale(n, "1em", "majorThird"),
     s3: (n: number = 1): string => modularScale(n, "1em", "perfectFourth"),
-    s4: (n: number = 1): string => modularScale(n, "1em", "perfectFifth")
+    s1: (n: number = 1): string => modularScale(n, "1em", "majorSecond"),
+    s4: (n: number = 1): string => modularScale(n, "1em", "perfectFifth"),
+    s8: (n: number = 1): string => modularScale(n, "1em", "octave")
   },
 
   color: {
