@@ -1,4 +1,7 @@
 //@flow
+/* eslint-disable prettier */
+
+//styled-components theme
 
 declare type Theme = {
   type: {
@@ -11,6 +14,25 @@ declare type Theme = {
     ["background" | "black" | "primary"]: string
   }
 };
+
+//component queries
+//prettier-ignore
+declare type compQuery = Array<(height?: number, width?: number) => { [string]: mixed }>;
+
+declare type compConfig = {
+  monitorWidth: boolean,
+  monitorHeight: boolean,
+  refreshRate: number,
+  pure: boolean
+};
+
+//prettier-ignore
+declare function componentQueries({
+  queries?: compQuery,
+  config?: compConfig
+}): <T>(React$Element<*>) => React$Element<T>;
+
+//HMR
 
 declare var module: {
   hot: {
