@@ -12,12 +12,15 @@ declare type Theme = {
   },
   color: {
     ["background" | "black" | "primary"]: string
+  },
+  effect: {
+    ["lighten"]: () => string
   }
 };
 
 //component queries
 //prettier-ignore
-declare type compQuery = Array<(height?: number, width?: number) => { [string]: mixed }>;
+type compQuery = Array<(height?: number, width?: number) => { [string]: mixed }>;
 
 declare type compConfig = {
   monitorWidth: boolean,
