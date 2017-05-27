@@ -8,6 +8,6 @@ import { HeaderMain } from "./header-main";
 
 export const Header = ({ ...props }: {}): React$Element<*> => (
   <ThemeProvider theme={mainTheme}>
-    <HeaderMain />
+    <HeaderMain {...props} />
   </ThemeProvider>
 );

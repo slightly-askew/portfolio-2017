@@ -5,10 +5,10 @@ import { Title, Wrapper } from "./styled-components";
 import { DesktopNav } from "./nav-main/desktop";
 import { LinkedInLogo } from "../../../elements/linkedin-icon";
 
-export const HeaderMain = (): React$Element<*> => (
+export const HeaderMain = (props: {}): React$Element<*> => (
   <Wrapper>
     <Title>Oliver Askew</Title>
-    <DesktopNav />
-    <LinkedInLogo />
+    <DesktopNav {...props} />
+    <LinkedInLogo {...props} />
   </Wrapper>
 );
