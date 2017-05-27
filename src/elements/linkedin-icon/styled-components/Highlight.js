@@ -8,6 +8,7 @@ const StyledHighlight = styled.rect`
   ${({ theme, isActive }: { theme: Theme, isActive: boolean }) => css`
 
     fill: ${theme.color.pink};
+    opacity: 0.8;
     will-change: transform;
     transition: transform 0.1s ease-in-out;
     transform: scaleX(0);
