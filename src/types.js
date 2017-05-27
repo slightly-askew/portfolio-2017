@@ -11,10 +11,10 @@ declare type Theme = {
     ["s1" | "s2" | "s3" | "s4" | "s8"]: (n?: number) => string
   },
   color: {
-    ["background" | "black" | "primary"]: string
+    ["background" | "black" | "primary" | "pink"]: string
   },
   effect: {
-    ["lighten"]: () => string
+    ["lighten" | "darken"]: () => string
   }
 };
 
