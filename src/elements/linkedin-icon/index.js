@@ -1,7 +1,6 @@
 //@flow
 
 import React from "react";
-import { Link } from "react-router-dom";
 import { pure, compose, withState, withHandlers } from "recompose";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../../global/style/mainTheme";
@@ -21,20 +20,21 @@ export const LinkedInLogo = enhance(
   ({
     addActive,
     rmActive,
-    isActive
+    isActive,
+    ...props
   }: {
     addActive: () => any,
     rmActive: () => any,
     isActive: boolean
   }) => (
     <ThemeProvider theme={mainTheme}>
-      <Link
-        to="https://www.linkedin.com/in/oliver-askew-5791a333/"
+      <a
+        href="https://www.linkedin.com/in/oliver-askew-5791a333/"
         onMouseEnter={addActive}
         onMouseLeave={rmActive}
       >
         <Logo isActive={isActive} />
-      </Link>
+      </a>
     </ThemeProvider>
   )
 );
