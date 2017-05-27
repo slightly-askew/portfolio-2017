@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
     position: relative;
     width: 100%;
     background-color: ${theme.color.background};
+    padding: 1em ${theme.scale.s4()};
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     
   `}
 `;
