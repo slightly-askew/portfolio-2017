@@ -3,8 +3,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StyledHighlight = styled.rect`
-
+export const Highlight = styled.rect.attrs({
+  width: "520",
+  height: "136",
+  y: "270"
+})`
   ${({ theme, isActive }: { theme: Theme, isActive: boolean }) => css`
 
     fill: ${theme.color.pink};
@@ -17,11 +20,3 @@ const StyledHighlight = styled.rect`
     
   `}
 `;
-
-export const Highlight = ({
-  isActive
-}: {
-  isActive: boolean
-}): React$Element<*> => (
-  <StyledHighlight isActive={isActive} width="520" height="136" y="270" />
-);
