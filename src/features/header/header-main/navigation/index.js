@@ -2,12 +2,12 @@
 import React from "react";
 
 import { Ul, Li, Nav } from "./styled-components";
-import { LinkedInIcon } from "../../../../../elements/linkedin-icon";
-import { Highlight } from "../../../../../elements/highlight";
-import { Chevron } from "../../../../../elements/chevron";
-import theme from "../../../../../global/style/mainTheme";
+import { LinkedInIcon } from "../../../../elements/linkedin-icon";
+import { Highlight } from "../../../../elements/highlight";
+import { Chevron } from "../../../../elements/chevron";
+import theme from "../../../../global/style/mainTheme";
 
-export const DesktopNav = (props: {}) => (
+export const MainNav = (props: {}) => (
   <Nav>
     <Ul>
       <Li><Highlight {...props} url="/">Projects</Highlight></Li>

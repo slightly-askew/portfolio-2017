@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Title, Wrapper } from "./styled-components";
-import { DesktopNav } from "./nav-main/desktop";
+import { MainNav } from "./navigation";
 import { Highlight } from "../../../elements/highlight";
 import { Skewify } from "../../../elements/skewify";
 import theme from "../../../global/style/mainTheme";
@@ -14,6 +14,6 @@ export const HeaderMain = (props: {}) => (
         Oliver <Skewify>Askew</Skewify>
       </Highlight>
     </Title>
-    <DesktopNav {...props} />
+    <MainNav {...props} />
   </Wrapper>
 );
