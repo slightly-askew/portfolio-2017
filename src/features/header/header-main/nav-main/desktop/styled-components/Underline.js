@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 
 export const Underline = styled.span`
 
-  ${({ isActive, theme }) => `
+  ${({ isActive, theme, highlightColor }) => `
     position: relative;
     &:before {
       z-index: -1;
@@ -12,7 +12,7 @@ export const Underline = styled.span`
       content: "";
       height: ${theme.scale.s3(-2)};
       bottom: -${theme.scale.s3(-10)};
-      background-color: ${theme.color.primary};
+      background-color: ${highlightColor || theme.color.primary};
       position: absolute;
       width: 100%;
       transform-origin: bottom left;
