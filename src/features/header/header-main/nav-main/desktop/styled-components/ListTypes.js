@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 export const Ul = styled.ul`
   ${({ theme }: { theme: Theme }) => css`
 
-    padding: 0 0 0 ${theme.scale.s8()};
+    padding: 0 0 0 ${theme.scale.s1(-3)};
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -24,7 +24,7 @@ export const Li = styled.li`
     font-size: ${theme.scale.s2(-1)};
     line-height: ${theme.scale.s8()};
     position: relative;
-    padding: 0 1em;
+    padding: 0 ${theme.scale.s2(-1)};
     transition: color 0.2s;
     z-index: 1;
   `;
