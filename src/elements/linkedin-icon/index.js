@@ -16,7 +16,7 @@ const enhance = compose(
   pure
 );
 
-export const LinkedInLogo = enhance(
+export const LinkedInIcon = enhance(
   ({
     addActive,
     rmActive,
