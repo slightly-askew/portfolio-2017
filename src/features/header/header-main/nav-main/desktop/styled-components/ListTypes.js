@@ -20,21 +20,13 @@ export const Li = styled.li`
     const textColor = theme.color.black;
 
     return css`
-
     ${theme.type.paragraph};
-    color: ${textColor};
     font-size: ${theme.scale.s2(-1)};
     line-height: ${theme.scale.s8()};
     position: relative;
     padding: 0 1em;
     transition: color 0.2s;
     z-index: 1;
-
-    &:hover{
-      cursor: pointer;
-      color: ${theme.effect.darken(0.2, textColor)};
-    }
-
   `;
   }}
 `;
