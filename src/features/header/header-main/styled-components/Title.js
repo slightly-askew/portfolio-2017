@@ -7,8 +7,9 @@ export const Title = styled.h1`
   ${({ theme }: { theme: Theme }) => css`
   
     ${theme.type.title};
-    font-size: ${theme.scale.s8()};
+    font-size: ${theme.scale.s3(2)};
     color: ${theme.color.black};
+    z-index: 1;
 
     display: inline-block;
     text-align: center;
