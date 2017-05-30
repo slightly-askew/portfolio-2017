@@ -6,7 +6,7 @@ import { Highlight } from "../../../../../elements/highlight";
 import { Chevron } from "../../../../../elements/chevron";
 import theme from "../../../../../global/style/mainTheme";
 
-export const DesktopNav = props => (
+export const DesktopNav = (props: {}) => (
   <Nav>
     <Ul>
       <Li><Highlight {...props} url="/">Projects</Highlight></Li>

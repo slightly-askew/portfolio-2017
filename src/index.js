@@ -9,7 +9,7 @@ import store, { history } from "./store";
 
 import App from "./App";
 
-const render = (Component: any) => {
+const render = Component => {
   return ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>

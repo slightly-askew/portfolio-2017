@@ -1,6 +1,7 @@
 //@flow
 
 import React from "react";
+import type { Children } from "react";
 
 import { Link } from "react-router-dom";
 import { Underline } from "./Underline";
@@ -26,15 +27,21 @@ export class Highlight extends React.Component {
     }
   };
 
-  addStateToChild = (child, state, i = 0) => {
+  addStateToChild = (
+    child: Children,
+    state: { isActive: boolean },
+    i: number = 0
+  ) => {
     if (typeof child === "object") {
-      const newProps = Object.assign({}, child.props, state, { key: i });
+      const newProps = Object.assign({}, child.props, state ? state : {}, {
+        key: i
+      });
       return React.cloneElement(child, newProps, child.props.children);
     }
     return child;
   };
 
-  addStateToChildren = (children: mixed, state: {}) => {
+  addStateToChildren = (children: Children, state: { isActive: boolean }) => {
     if (Array.isArray(children)) {
       return children.map((c, i) => this.addStateToChild(c, state, i));
     }

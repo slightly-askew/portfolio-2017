@@ -6,7 +6,7 @@ import mainTheme from "../../global/style/mainTheme";
 
 import { HeaderMain } from "./header-main";
 
-export const Header = ({ ...props }: {}): React$Element<*> => (
+export const Header = ({ ...props }: {}) => (
   <ThemeProvider theme={mainTheme}>
     <HeaderMain {...props} />
   </ThemeProvider>

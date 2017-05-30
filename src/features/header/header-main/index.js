@@ -8,7 +8,7 @@ import { Highlight } from "../../../elements/highlight";
 import { Skewify } from "../../../elements/skewify";
 import theme from "../../../global/style/mainTheme";
 
-export const HeaderMain = (props: {}): React$Element<*> => (
+export const HeaderMain = (props: {}) => (
   <Wrapper>
     <Title>
       <Highlight url="/" highlightColor={theme.color.yellow}>

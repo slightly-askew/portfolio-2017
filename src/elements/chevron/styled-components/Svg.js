@@ -15,11 +15,11 @@ export const Svg = styled.svg.attrs({
     transform-origin: 60% 60%;
     will-change: transform fill;
     transition: all 0.2s ease-in-out;
-    ${isActive && stateful && `
+    ${isActive && stateful ? `
       fill: ${theme.effect.darken(0.2, theme.color.black)};
       transform: rotate(180deg);
     
-    `}
+    ` : ``}
   
   `}
 `;
