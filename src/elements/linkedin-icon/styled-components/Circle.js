@@ -1,12 +1,14 @@
 //@flow
 
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
-const StyledCircle = styled.circle`
+export const Circle = styled.circle.attrs({
+  cx: "260",
+  cy: "240",
+  r: "240"
+})`
 
   fill: #fff;
 
 `;
-
-export const Circle = () => <StyledCircle cx="260" cy="240" r="240" />;
