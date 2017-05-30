@@ -11,7 +11,10 @@ declare type Theme = {
     ["s1" | "s2" | "s3" | "s4" | "s8"]: (n?: number) => string
   },
   color: {
-    ["background" | "black" | "primary" | "pink"]: string
+    ["background" | "black" | "primary" | "pink" | "yellow" | "green"]: string
+  },
+  utils: {
+    "baseAdjust": (n: number) => string
   },
   effect: {
     ["lighten" | "darken"]: () => string

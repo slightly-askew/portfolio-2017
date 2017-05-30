@@ -48,7 +48,12 @@ export default {
     background: "#f6f6f6",
     black: "#141414",
     primary: "lightblue",
-    pink: "pink"
+    pink: "pink",
+    yellow: "yellow",
+    green: "lightgreen"
+  },
+  utils: {
+    baseAdjust: (n: number): string => baseAdjust(n)
   },
 
   effect: {
