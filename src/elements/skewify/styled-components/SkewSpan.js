@@ -12,7 +12,7 @@ export const SkewSpan = styled.span.attrs({
     isActive
       ? {
           transformOrigin: "center center",
-          transform: `scale(${randomScale(0.5)}) rotate(${randomRotate(24)}deg) translate(${randomTranslate(0.25)}em, ${randomTranslate(0.25)}em)`
+          transform: `scale(${randomScale(0.25)}) rotate(${randomRotate(15)}deg) translate(${randomTranslate(0.125)}em, ${randomTranslate(0.125)}em)`
         }
       : {
           transform: "none"
