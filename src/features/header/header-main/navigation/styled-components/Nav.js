@@ -7,4 +7,8 @@ export const Nav = styled.nav`
   opacity: 1;
   background: transparent;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding-left: 1em;
 `;
