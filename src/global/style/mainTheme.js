@@ -46,7 +46,7 @@ export default {
 
   color: {
     background: "#f6f6f6",
-    black: "#141414",
+    black: "#2e2e2e",
     primary: "lightblue",
     pink: "pink",
     yellow: "yellow",
