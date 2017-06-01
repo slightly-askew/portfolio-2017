@@ -10,8 +10,6 @@ export const Title = styled.h1`
     font-size: ${theme.scale.s2(2)};
     color: ${theme.color.black};
     z-index: 1;
-
-    display: inline-block;
     text-align: center;
     line-height: 1;
     margin: 0;
