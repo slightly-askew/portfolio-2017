@@ -10,10 +10,14 @@ const StyledPath = styled.path`
     return css`
 
     fill: ${fill};
-    ${isActive && css`fill: ${theme.effect.darken(0.4, fill)}`};
-    will-change: fill;
-    transition: fill 0.1s;
-  
+    transform-origin: center center;
+    ${isActive && css`
+      fill: ${theme.effect.darken(0.4, fill)};
+      transform: scale(1.04);
+      `};
+    will-change: fill transform;
+    transition: all 0.1s;
+
   `;
   }}
 `;
