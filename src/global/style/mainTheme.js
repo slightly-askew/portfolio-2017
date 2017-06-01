@@ -11,7 +11,7 @@ export default {
       letter-spacing: -0.04em;
       font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
       font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
-      ${baseAdjust(1.125)}
+      ${baseAdjust(0)}
     `,
     heading: `
       font-family: "Montserrat", Roboto, sans-serif;
@@ -26,7 +26,7 @@ export default {
       font-weight: 400;
       letter-spacing: -0.025em;
       font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
-      ${baseAdjust(0.714)};
+      ${baseAdjust(0)};
     `,
     label: `
       font-family: "Fira Mono", monospace;
