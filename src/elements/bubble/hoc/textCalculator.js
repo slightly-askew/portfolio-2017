@@ -10,7 +10,7 @@ type Props = {
   characterWidth: number,
   minTextWidth: number,
   textPadding: {
-    ['top' | 'right' | 'bottom' | 'left'] : number
+    ['top' | 'right' | 'bottom' | 'left']: number
   },
   textHeight: number,
   textMargin: number,
@@ -25,13 +25,13 @@ type Props = {
 
 export default (props: Props) => {
 
-    const checkItemAgainstMax = (i:number, max: number): number => {
+    const checkItemAgainstMax = (i: number, max: number): number => {
       return (
         Math.max((!!max ? max : 0),(i ? i : 0))
       )
     };
 
-    const getMaximumColumnCount = (rowShape:Array<Array<number>>): number[] => {
+    const getMaximumColumnCount = (rowShape: Array<Array<number>>): number[] => {
       const columnSizes = new Array(props.textColumns).fill(1);
       rowShape.map((row) => (
         row.map((val, i) => (

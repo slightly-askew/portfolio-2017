@@ -1,25 +1,21 @@
 //@flow
 
 //vendor
-import styled from 'styled-components';
+import styled, { css } from "styled-components";
 
-export const Svg = (styled.svg.attrs({
-
+export const Svg = styled.svg.attrs({
   className: "bubble__svg",
-  viewBox: (props) => {
-    console.log (props.svgDimensions);
-    return `0 0 ${props.svgDimensions.x} ${props.svgDimensions.y}`;
-  }
-
+  viewBox: props => `0 0 ${props.svgDimensions.x} ${props.svgDimensions.y}`
 })`
+  ${({ isActive, svgDimensions }: { isActive: boolean, svgDimensions: { x: number, y: number } }) => css`
   will-change: transform opacity;
-  transition: all 0s 0.2s;
-  fill: white;
+  transition: all 0s ${isActive ? "0s" : "0.2s"};
   display: block;
-  height: calc(${({svgDimensions}) => svgDimensions.y} * 0.0583em);
-  transform: scale(0);
-  opacity: 0;
+  height: calc(${svgDimensions.y} * 0.0583em);
+  transform: scale(${isActive ? "1" : "0"});
+  opacity: ${isActive ? "1" : "0"};
   position: absolute;
   right: -1.25em;
   padding: 2em 0.5em 0.5em 0.5em;
-`)
+  `}
+`;

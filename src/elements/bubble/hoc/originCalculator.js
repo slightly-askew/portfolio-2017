@@ -1,11 +1,11 @@
 //@flow
-import { compose } from 'recompose';
-import mapOrigins from '../helpers/mapOrigins';
+import { compose } from "recompose";
+import mapOrigins from "../helpers/mapOrigins";
 
 type coordinates = {
-  'x': number,
-  'y': number
-}
+  "x": number,
+  "y": number
+};
 
 export default ({
   transforms,
@@ -14,12 +14,12 @@ export default ({
   dividerGrid,
   maskOrigin,
   ...props
-}:{
+}: {
   transforms: {
-    flip: (coordinates) => coordinates,
-    morph: (coordinates) => coordinates,
-    flipText: (coordinates) => coordinates,
-    offset: (coordinates) => coordinates,
+    flip: coordinates => coordinates,
+    morph: coordinates => coordinates,
+    flipText: coordinates => coordinates,
+    offset: coordinates => coordinates
   },
   textboxOrigin: {
     x: number,
@@ -37,20 +37,12 @@ export default ({
     x: number,
     y: number
   }
-}):{} => {
+}): {} => {
+  const { morph, flipText, flip, offset } = transforms;
 
-  const { morph, flipText, flip, offset } = transforms
+  const orientate = compose(flipText, morph);
 
-  const orientate = compose(
-    flipText,
-    morph
-  )
-
-  const orientateMask = compose(
-    flip,
-    offset,
-    morph
-  )
+  const orientateMask = compose(flip, offset, morph);
 
   const firstOrigin = orientate(morph(textboxOrigin));
 
@@ -58,16 +50,14 @@ export default ({
 
   const textOrigins = mapToBox(textGrid);
   const dividerOrigins = mapToBox(dividerGrid);
-  const newMaskOrigin = orientateMask(maskOrigin)
+  const newMaskOrigin = orientateMask(maskOrigin);
 
-  return (
-    Object.assign({},
-      {...props},
-      { transforms: transforms },
-      { textOrigins: textOrigins },
-      { dividerOrigins: dividerOrigins },
-      { maskOrigin: newMaskOrigin }
-    )
-  )
-
-}
+  return Object.assign(
+    {},
+    { ...props },
+    { transforms: transforms },
+    { textOrigins: textOrigins },
+    { dividerOrigins: dividerOrigins },
+    { maskOrigin: newMaskOrigin }
+  );
+};

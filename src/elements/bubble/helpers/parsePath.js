@@ -1,14 +1,28 @@
 //@flow
 
-export const parsePath = (path: string): ?mixed[] => {
+export const parsePath = (path: string): ?(mixed[]) => {
+  const segmentTypes = path.match(/[A-Z]/gi);
+  const segmentValues = path.split(/[A-Z]/gi).slice(1);
 
-  const segmentTypes = path.match(/A-Z/);
-  const segmentValues = path.split(/A-Z/);
+  const isNumeric = (n: mixed): boolean => !isNaN(n) && isFinite(n);
 
-  const splitCoords = (seg: string): string[] => seg.split(' ');
-  const splitVals = (seg: string): number[] => seg.split(',').map(s => parseFloat(s));
+  const splitCoords = (seg: string): string[] =>
+    seg.split(" ").filter(f => !!f);
 
-  if (segmentTypes && segmentValues && Array.isArray(segmentTypes) && Array.isArray(segmentValues)) {
-    return segmentTypes.map((t, i) => ([`${t}`, splitCoords(segmentValues[i]).map(c => splitVals.c)]));
+  const splitVals = (seg: string): ?(number[]) => {
+    if (seg && seg !== "") {
+      return seg.split(",").map(n => parseFloat(n));
+    }
+  };
+
+  if (
+    segmentTypes &&
+    segmentValues &&
+    Array.isArray(segmentTypes) &&
+    Array.isArray(segmentValues)
+  ) {
+    return segmentTypes.map((t, i) => {
+      return [`${t}`, splitCoords(segmentValues[i]).map(s => splitVals(s))];
+    });
   }
-}
+};
