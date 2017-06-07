@@ -74,10 +74,8 @@ declare type defaultBubbleConfig = {
       | "bottom-right"
       | "left-bottom"
       | "bottom-right">,
-  dimentions: {
-    x: number,
-    y: number
-  },
+  d: string,
+  viewBox: string,
   origin: {
     x: number,
     y: number
