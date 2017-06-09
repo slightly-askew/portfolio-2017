@@ -27,6 +27,12 @@ export const Li = styled.li`
     padding: 0 ${theme.scale.s2(-1)};
     transition: color 0.2s;
     z-index: 1;
+
+    & > .bubble__svg {
+      right: -${theme.scale.s1(3)};
+    }
+
+
   `;
   }}
 `;
