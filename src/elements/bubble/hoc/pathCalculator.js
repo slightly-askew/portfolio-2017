@@ -2,7 +2,6 @@
 
 import { compose } from "recompose";
 
-import genericPath from "../data/svgGenericPathData";
 import adjustPath from "../helpers/adjustPath";
 import { parsePath } from "../helpers/parsePath";
 //import flattenPathData from '../helpers/flattenPathData';

@@ -40,11 +40,11 @@ export default ({
 }): {} => {
   const { morph, flipText, flip, offset } = transforms;
 
-  const orientate = compose(flipText, morph);
+  const orientate = compose(flipText, offset, morph);
 
   const orientateMask = compose(flip, offset, morph);
 
-  const firstOrigin = orientate(morph(textboxOrigin));
+  const firstOrigin = orientate(textboxOrigin);
 
   const mapToBox = mapOrigins(firstOrigin);
 

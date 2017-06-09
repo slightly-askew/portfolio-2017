@@ -15,7 +15,6 @@ export const Svg = styled.svg.attrs({
   transform: scale(${isActive ? "1" : "0"});
   opacity: ${isActive ? "1" : "0"};
   position: absolute;
-  right: -1.25em;
-  padding: 2em 0.5em 0.5em 0.5em;
+  padding: 0.5em;
   `}
 `;

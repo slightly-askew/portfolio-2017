@@ -1,18 +1,17 @@
 //@flow
 
-import createRowDataShape from '../helpers/createRowDataShape';
+import createRowDataShape from "../helpers/createRowDataShape";
 
 type Props = {
   textItems: Array<{
     label: string,
     target: string
   }>,
-  characterWidth: number,
-  minTextWidth: number,
   textPadding: {
-    ['top' | 'right' | 'bottom' | 'left']: number
+    ["top" | "right" | "bottom" | "left"]: number
   },
   textHeight: number,
+  textElementWidths: { [string]: number },
   textMargin: number,
   dividerWidth: number,
   textColumns: number,
@@ -21,90 +20,103 @@ type Props = {
     x: number,
     y: number
   }
-}
+};
 
 export default (props: Props) => {
+  const checkItemAgainstMax = (i: ?number = 0, max: ?number = 0): number => {
+    return Math.max(max ? max : 0, i ? i : 0);
+  };
 
-    const checkItemAgainstMax = (i: number, max: number): number => {
-      return (
-        Math.max((!!max ? max : 0),(i ? i : 0))
+  const getMaximumRangeCount = (shape: {shape: Array<Array<number>>, numColumns: number}): number[] => {
+    //const rangeSizes = new Array(shape.numColumns).fill(1);
+    const rangeSizes = [];
+    shape.shape.map(row =>
+      row.map(
+        (val, i) => (rangeSizes[i] = checkItemAgainstMax(val, rangeSizes[i]))
       )
-    };
+    );
+    return rangeSizes;
+  };
 
-    const getMaximumColumnCount = (rowShape: Array<Array<number>>): number[] => {
-      const columnSizes = new Array(props.textColumns).fill(1);
-      rowShape.map((row) => (
-        row.map((val, i) => (
-          columnSizes[i] = checkItemAgainstMax(val, columnSizes[i])
-        ))
-      ))
-      return columnSizes;
-    }
+  const childrenAsWidths = props.textElementWidths ? Object.values(props.textElementWidths) : new Array(props.textItems.length).fill(1);
+  const widthsAsShape = createRowDataShape(
+    childrenAsWidths,
+    props.textColumns
+  );
+  const colWidths = getMaximumRangeCount(widthsAsShape);
+  const columnMargin = props.textMargin * 2;
 
-    const childrenAsChars: Array<number> = props.textItems.map(c => c.label.length);
-    const childrenAsWidths: Array<number> = childrenAsChars.map(c => c * props.characterWidth)
-    const childrenAsShape = createRowDataShape(childrenAsWidths, props.textColumns)
-    const colWidths = getMaximumColumnCount(childrenAsShape.shape);
-    const columnMargin = props.textMargin * 3
-
-    console.log(colWidths)
-
-    const textOriginsX: Array<number> = colWidths
-    .reduce((acc, c, i) => (
-      acc.concat((acc[i]) + c +
-      (columnMargin * 2) +
-      props.dividerWidth
-    )),[0])
+  const textOriginsX: Array<number> = colWidths
+    .reduce(
+      (acc, c, i) =>
+        acc.concat(acc[i] + c + columnMargin * 2 + props.dividerWidth),
+      [0]
+    )
     .slice(0, props.textColumns);
 
-    console.log(textOriginsX)
+  const getLastValue = (a: Array<number>): number => a.slice().pop();
 
-    const getLastValue = (a: Array<number>): number => a.slice().pop();
+  const textFullWidth: number =
+    getLastValue(textOriginsX) + getLastValue(colWidths);
 
-    const textFullWidth: number = getLastValue(textOriginsX) + getLastValue(colWidths);
+  const columnDividerOrigins = textOriginsX
+    .slice(1)
+    .map(o => o - columnMargin - props.dividerWidth);
 
-    const columnDividerOrigins =
-    textOriginsX.slice(1)
-    .map(o => o - columnMargin - props.dividerWidth)
+  // Height
+  const numRows = widthsAsShape.numRows;
+  const childrenAsHeights = props.textElementHeights ? Object.values(props.textElementHeights) : new Array(props.textItems.length).fill(1);
+  const heightShape = createRowDataShape(childrenAsHeights, numRows)
+  const rowHeights = getMaximumRangeCount(heightShape);
 
-    // Height
-    const lines = props.textItems.length;
-    const linesAccountingForColumns = Math.ceil(lines / props.textColumns);
+  const lines = props.textItems.length;
+  const linesAccountingForColumns = Math.ceil(lines / props.textColumns);
+  const lineHeight = props.textHeight + props.textMargin;
 
-    const lineHeight = props.textHeight + props.textMargin;
 
-    const calculateYOrigins = (lines, height) => {
-
-      const origins = []
-
-      for (let i = 0; i < lines; i++) {
-        origins.push(i*height);
+  const configureY = (rowHeights: number[], margin: number): {origins: number[], height: number} => {
+    let origins = [];
+    const height = rowHeights.reduce((acc, h, i, ary) => {
+      acc += h
+      origins.push(acc)
+      if ((i + 1) < ary.length) {
+        acc += margin;
       }
+      return acc
+    },0);
+    return ({
+      origins: origins,
+      height: height
+    });
+  }
 
-      return origins
-    }
 
-    const textOriginsY = calculateYOrigins(linesAccountingForColumns, lineHeight)
 
-    const textFullHeight = linesAccountingForColumns * lineHeight
+  const yAxis = configureY(rowHeights, props.textMargin);
 
-   /* end column logic */
+  /* end column logic */
 
-  return Object.assign({},
-    {...props},
-    {textDimensions: {
-      x: textFullWidth,
-      y: textFullHeight
-    }},
-    {textGrid : {
-      x: textOriginsX,
-      y: textOriginsY
-    }},
-    {textWidths: childrenAsWidths},
-    {dividerGrid: {
-      x: columnDividerOrigins,
-      y: [0]
-    }},
-    {colSize: childrenAsShape.colSize}
-  )
-}
+  return Object.assign(
+    {},
+    { ...props },
+    {
+      textDimensions: {
+        x: textFullWidth,
+        y: yAxis.height
+      }
+    },
+    {
+      textGrid: {
+        x: textOriginsX,
+        y: yAxis.origins
+      }
+    },
+    {
+      dividerGrid: {
+        x: columnDividerOrigins,
+        y: [0]
+      }
+    },
+    { colSize: numRows }
+  );
+};

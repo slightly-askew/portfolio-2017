@@ -15,26 +15,23 @@ type coordinates = {
 };
 
 class Block extends React.Component {
-  state = {
-    underlineWidth: 0
-  };
-  componentDidMount() {
-    const getUnderlineWidth: ?number = this.textElementWidth.getBBox().width;
-    this.setState({ underlineWidth: getUnderlineWidth });
-  }
-
   render() {
-    const { origin, isActive, children } = this.props;
+    const {
+      origin,
+      isActive,
+      children,
+      elementRef,
+      textElementWidths
+    } = this.props;
+    const ref = elementRef(children);
 
     return (
       <TextComponent isActive={isActive}>
-        <Underline origin={origin} width={this.state.underlineWidth} />
-        <TextElement
+        <Underline
           origin={origin}
-          innerRef={el => {
-            this.textElementWidth = el;
-          }}
-        >
+          width={textElementWidths ? textElementWidths[children] : 0}
+        />
+        <TextElement origin={origin} innerRef={ref}>
           {children}
         </TextElement>
       </TextComponent>
@@ -43,11 +40,22 @@ class Block extends React.Component {
 }
 
 class Text extends React.Component {
+  elements = {};
+  state = {};
+
+  componentDidMount() {
+    this.setState(() => ({
+      textElementDimensions: this.elements
+    }));
+  }
+
   getTextItems = ({
+    elementRef,
     textOrigins,
     textItems,
     ...props
   }: {
+    elementRef: () => any,
     textOrigins: Array<coordinates>,
     textItems: Array<{
       label: string,
@@ -61,7 +69,13 @@ class Text extends React.Component {
       const origin = textOrigins[i];
 
       return (
-        <Block key={i} origin={origin} target={child.target} {...props}>
+        <Block
+          key={i}
+          origin={origin}
+          elementRef={elementRef}
+          target={child.target}
+          {...props}
+        >
           {child.label}
         </Block>
       );

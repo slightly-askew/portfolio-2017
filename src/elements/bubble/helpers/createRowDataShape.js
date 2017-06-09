@@ -5,38 +5,40 @@ import { compose } from 'recompose';
 const getColSize = (list: Array<any>, numColumns: number): {
 
   list: Array<any>,
-  colSize: number
+  numColumns: number
 
 } => ({
   list: list,
-  colSize: Math.ceil(list.length / numColumns),
-  rowSize: numColumns,
+  numRows: Math.ceil(list.length / numColumns),
+  numColumns: numColumns,
 });
 
-const splitListIntoRows = ({ list, rowSize, colSize }: {
+const splitListIntoRows = ({ list, numRows, numColumns }: {
 
   list: Array<any>,
-  rowSize: number,
-  colSize: number
+  numRows: number,
+  numColumns: number
 }): {
   shape: Array<Array<any>>,
-  colSize: number
+  numRows: number,
+  numColumns: number
 
 } => {
 
   let rowList = [];
 
-  for (let i = 0; i < colSize; i++) {
+  for (let i = 0; i < numRows; i++) {
 
-    const rowStart = i * rowSize;
-    const rowFin = i * rowSize + rowSize;
+    const rowStart = i * numColumns;
+    const rowFin = i * numColumns + numColumns;
 
     rowList.push(list.slice(rowStart,rowFin))
   }
 
   return ({
     shape: rowList,
-    colSize: colSize
+    numColumns: numColumns,
+    numRows: numRows
     });
 }
 
@@ -47,7 +49,8 @@ const createRowDataShape = compose(
 
 export default (list: Array<any>, numColumns: number): {
   shape: Array<Array<any>>,
-  colSize: number
+  numColumns: number,
+  numRows: number
   } => (
 
   createRowDataShape(list, numColumns)
