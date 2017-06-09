@@ -6,14 +6,17 @@ import { MainNav } from "./navigation";
 import { Highlight } from "../../../elements/highlight";
 import { Skewify } from "../../../elements/skewify";
 import theme from "../../../global/style/mainTheme";
+import addActiveState from "../../../global/hoc/addActiveState";
+
+const ActiveTitle = addActiveState(Title);
 
 export const HeaderMain = (props: {}) => (
   <Wrapper>
-    <Title>
-      <Highlight url="/" highlightColor={theme.color.yellow}>
+    <ActiveTitle>
+      <Highlight url="/" highlightColor="transparent">
         Oliver <Skewify>Askew</Skewify>
       </Highlight>
-    </Title>
+    </ActiveTitle>
     <MainNav {...props} />
   </Wrapper>
 );
