@@ -38,7 +38,7 @@ export default (props: {
         <Circle {...props} />
       </mask>
       <Path {...props} mask="url(#circleMask)" />
-      <Text {...props} elementRef={props.elementRef} mask="url(#circleMask)">
+      <Text {...props} mask="url(#circleMask)" textBoxSize={props.textBoxSize}>
         {props.children}
       </Text>
       <Dividers {...props} mask="url(#circleMask)" />

@@ -14,6 +14,7 @@ type coordinates = {
   "y": number
 };
 
+//maintains the width of each textElement for the purpose of measuring underline length
 class Block extends React.Component {
   render() {
     const {
@@ -83,7 +84,7 @@ class Text extends React.Component {
 
   render() {
     return (
-      <TextGroup>
+      <TextGroup innerRef={this.props.textBoxSize}>
         {this.getTextItems(this.props)}
       </TextGroup>
     );
