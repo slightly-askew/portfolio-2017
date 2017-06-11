@@ -67,6 +67,7 @@ const addActiveState = (
           onMouseLeave={this.rmActive}
           onFocus={this.addActive}
           onBlur={this.rmActive}
+          onTouchStart={this.addActive}
         >
           {children}
         </Component>
