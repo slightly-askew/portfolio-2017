@@ -1,1 +1,3 @@
-//export { x } from feature/data/actions
+//@flow
+
+export * from "../ui/actions";
