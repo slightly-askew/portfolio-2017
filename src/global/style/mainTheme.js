@@ -52,8 +52,9 @@ export default {
     yellow: "yellow",
     green: "lightgreen"
   },
+
   utils: {
-    baseAdjust: (n: number): string => baseAdjust(n)
+    baseAdjust: (n: number): Array<any> => baseAdjust(n)
   },
 
   effect: {
