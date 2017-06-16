@@ -6,8 +6,11 @@ import * as actionCreators from "./data/actions/actionCreators";
 
 import { Main } from "./scenes/Main";
 
-function mapStateToProps(state: { cards: {}[] }): {} {
-  return { cards: state.cards };
+function mapStateToProps(state) {
+  return {
+    cards: state.cards,
+    ui: state.ui
+  };
 }
 
 export function mapDispatchToProps(dispatch: {}) {
