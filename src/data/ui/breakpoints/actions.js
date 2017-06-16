@@ -1,7 +1,7 @@
 //@flow
 
-export default (component: string, newLayout: string) => ({
+export default (component: string, query: { [string]: string }) => ({
   type: "CHANGE_MAIN_LAYOUT",
   component,
-  newLayout
+  query
 });
