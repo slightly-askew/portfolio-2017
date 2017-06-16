@@ -1,9 +1,11 @@
 //@flow
 
 import React from "react";
+import { compose } from "recompose";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../../global/style/mainTheme";
 import { detectWidth } from "./componentQueries";
+import wrapWithContainerQuery from "../../global/hoc/wrapWithContainerQuery";
 
 import { HeaderMain } from "./header-main";
 
@@ -15,7 +17,9 @@ type props = {
   }
 };
 
-const HeaderMainCQ = detectWidth(HeaderMain);
+const addContainerQuery = compose(detectWidth, wrapWithContainerQuery("main"));
+
+const HeaderMainCQ = addContainerQuery(HeaderMain);
 
 export const Header = (props: props) => {
   return (
