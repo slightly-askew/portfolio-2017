@@ -4,8 +4,8 @@
 import styled from "styled-components";
 
 export const TextComponent = styled.g`
-  transform-origin: center center;
-  will-change: transform;
+  transform-origin: 50% 60%;
+  will-change: transform opacity;
   cursor: pointer;
   &:hover {
     & rect {
@@ -15,7 +15,9 @@ export const TextComponent = styled.g`
     transform: scale(1.025);
   }
   ${({ isActive }: { isActive: boolean }) => `
-    transition: all 0.05s ${isActive ? "0.1s" : "0s"};
+    transition: transform 0.1s ${isActive
+      ? "0.15s"
+      : "0s"}, opacity 0.1s ${isActive ? "0.1s" : "0s"};
     transform: scale(${isActive ? "1" : "0"});
     opacity: (${isActive ? "1" : "0"})
   `}
