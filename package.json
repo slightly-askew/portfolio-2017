@@ -12,6 +12,7 @@
     "babel-polyfill": "^6.23.0",
     "eslint": "^3.19.0",
     "history": "^4.6.1",
+    "lodash": "^4.17.4",
     "polished": "^1.0.2",
     "prop-types": "^15.5.10",
     "react": "^15.5.0",

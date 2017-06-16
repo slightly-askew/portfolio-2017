@@ -1,5 +1,3 @@
-//@flow
-
 // flow-typed signature: 34afd4e2e8b5eec59e8b7f8171bc352d
 // flow-typed version: <<STUB>>/react-component-queries_v^2.1.1/flow_v0.42.0
 
@@ -15,24 +13,8 @@
  * https://github.com/flowtype/flow-typed
  */
 
-declare module "react-component-queries" {
-  //prettier-ignore
-  declare type compQuery = Array<(height?: number, width?: number) => { [string]: mixed }>;
-
-  declare type compConfig = {
-    monitorWidth: boolean,
-    monitorHeight: boolean,
-    refreshRate: number,
-    pure: boolean
-  };
-
-  //prettier-ignore
-  declare function componentQueries({
-  queries?: compQuery,
-  config?: compConfig
-}): <T>(React$Element<*>) => React$Element<T>;
-
-  declare module.exports: componentQueries;
+declare module 'react-component-queries' {
+  declare module.exports: any;
 }
 
 /**
@@ -40,95 +22,81 @@ declare module "react-component-queries" {
  * require those files directly. Feel free to delete any files that aren't
  * needed.
  */
-declare module "react-component-queries/lib/react-component-queries" {
+declare module 'react-component-queries/lib/react-component-queries' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/src/componentQueries" {
+declare module 'react-component-queries/src/componentQueries' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/src/index" {
+declare module 'react-component-queries/src/index' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/src/utils/getDisplayName" {
+declare module 'react-component-queries/src/utils/getDisplayName' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/src/utils/mergeWith" {
+declare module 'react-component-queries/src/utils/mergeWith' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/src/utils/shallowEqual" {
+declare module 'react-component-queries/src/utils/shallowEqual' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/test/componentQueries.test" {
+declare module 'react-component-queries/test/componentQueries.test' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/test/jsdom" {
+declare module 'react-component-queries/test/jsdom' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/test/setup" {
+declare module 'react-component-queries/test/setup' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/wallaby.conf" {
+declare module 'react-component-queries/wallaby.conf' {
   declare module.exports: any;
 }
 
-declare module "react-component-queries/webpack.config.babel" {
+declare module 'react-component-queries/webpack.config.babel' {
   declare module.exports: any;
 }
 
 // Filename aliases
-declare module "react-component-queries/lib/react-component-queries.js" {
-  declare module.exports: $Exports<
-    "react-component-queries/lib/react-component-queries"
-  >;
+declare module 'react-component-queries/lib/react-component-queries.js' {
+  declare module.exports: $Exports<'react-component-queries/lib/react-component-queries'>;
 }
-declare module "react-component-queries/src/componentQueries.js" {
-  declare module.exports: $Exports<
-    "react-component-queries/src/componentQueries"
-  >;
+declare module 'react-component-queries/src/componentQueries.js' {
+  declare module.exports: $Exports<'react-component-queries/src/componentQueries'>;
 }
-declare module "react-component-queries/src/index.js" {
-  declare module.exports: $Exports<"react-component-queries/src/index">;
+declare module 'react-component-queries/src/index.js' {
+  declare module.exports: $Exports<'react-component-queries/src/index'>;
 }
-declare module "react-component-queries/src/utils/getDisplayName.js" {
-  declare module.exports: $Exports<
-    "react-component-queries/src/utils/getDisplayName"
-  >;
+declare module 'react-component-queries/src/utils/getDisplayName.js' {
+  declare module.exports: $Exports<'react-component-queries/src/utils/getDisplayName'>;
 }
-declare module "react-component-queries/src/utils/mergeWith.js" {
-  declare module.exports: $Exports<
-    "react-component-queries/src/utils/mergeWith"
-  >;
+declare module 'react-component-queries/src/utils/mergeWith.js' {
+  declare module.exports: $Exports<'react-component-queries/src/utils/mergeWith'>;
 }
-declare module "react-component-queries/src/utils/shallowEqual.js" {
-  declare module.exports: $Exports<
-    "react-component-queries/src/utils/shallowEqual"
-  >;
+declare module 'react-component-queries/src/utils/shallowEqual.js' {
+  declare module.exports: $Exports<'react-component-queries/src/utils/shallowEqual'>;
 }
-declare module "react-component-queries/test/componentQueries.test.js" {
-  declare module.exports: $Exports<
-    "react-component-queries/test/componentQueries.test"
-  >;
+declare module 'react-component-queries/test/componentQueries.test.js' {
+  declare module.exports: $Exports<'react-component-queries/test/componentQueries.test'>;
 }
-declare module "react-component-queries/test/jsdom.js" {
-  declare module.exports: $Exports<"react-component-queries/test/jsdom">;
+declare module 'react-component-queries/test/jsdom.js' {
+  declare module.exports: $Exports<'react-component-queries/test/jsdom'>;
 }
-declare module "react-component-queries/test/setup.js" {
-  declare module.exports: $Exports<"react-component-queries/test/setup">;
+declare module 'react-component-queries/test/setup.js' {
+  declare module.exports: $Exports<'react-component-queries/test/setup'>;
 }
-declare module "react-component-queries/wallaby.conf.js" {
-  declare module.exports: $Exports<"react-component-queries/wallaby.conf">;
+declare module 'react-component-queries/wallaby.conf.js' {
+  declare module.exports: $Exports<'react-component-queries/wallaby.conf'>;
 }
-declare module "react-component-queries/webpack.config.babel.js" {
-  declare module.exports: $Exports<
-    "react-component-queries/webpack.config.babel"
-  >;
+declare module 'react-component-queries/webpack.config.babel.js' {
+  declare module.exports: $Exports<'react-component-queries/webpack.config.babel'>;
 }

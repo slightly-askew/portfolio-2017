@@ -1,5 +1,5 @@
-// flow-typed signature: 22fbf667e5deca24f7d75ff5bffd0b87
-// flow-typed version: fda65b2c82/styled-components_v1.4.x/flow_>=v0.25.x
+// flow-typed signature: 2b1a21afcb612598a45f5797c116e45b
+// flow-typed version: 9f55883627/styled-components_v2.x.x/flow_>=v0.25.x
 
 // @flow
 
@@ -17,11 +17,26 @@ type $npm$styledComponents$ThemeProviderProps = {
   theme: ((outerTheme: $npm$styledComponents$Theme) => void) | $npm$styledComponents$Theme
 };
 type $npm$styledComponents$Component =
-  | React$Component<*, *, *>
+  | ReactClass<*>
   | (props: *) => React$Element<*>;
 
 class Npm$StyledComponents$ThemeProvider extends React$Component {
   props: $npm$styledComponents$ThemeProviderProps;
+}
+
+type $npm$styledComponents$StyleSheetManagerProps = {
+  sheet: mixed
+}
+
+class Npm$StyledComponents$StyleSheetManager extends React$Component {
+  props: $npm$styledComponents$StyleSheetManagerProps;
+}
+
+class Npm$StyledComponents$ServerStyleSheet {
+  instance: StyleSheet
+  collectStyles: (children: any) => React$Element<*>
+  getStyleTags: () => string
+  getStyleElement: () => React$Element<*>
 }
 
 declare module 'styled-components' {
@@ -39,6 +54,8 @@ declare module 'styled-components' {
     css: (strings: Array<string>, ...interpolations: Array<Interpolation>) => Array<Interpolation>,
     keyframes: (strings: Array<string>, ...interpolations: Array<Interpolation>) => string,
     withTheme: (component: Component) => React$Component<*, ThemeProviderProps, *>,
+    ServerStyleSheet: typeof Npm$StyledComponents$ServerStyleSheet,
+    StyleSheetManager: typeof Npm$StyledComponents$StyleSheetManager,
     ThemeProvider: typeof Npm$StyledComponents$ThemeProvider,
     (baseComponent: Component): StyledComponent,
     a: StyledComponent,
@@ -191,6 +208,7 @@ declare module 'styled-components/native' {
   declare module.exports: {
     css: (strings: Array<string>, ...interpolations: Array<Interpolation>) => Array<Interpolation>,
     withTheme: (component: Component) => React$Component<*, ThemeProviderProps, *>,
+    keyframes: (strings: Array<string>, ...interpolations: Array<Interpolation>) => string,
     ThemeProvider: typeof Npm$StyledComponents$ThemeProvider,
 
     (baseComponent: Component): StyledComponent,
