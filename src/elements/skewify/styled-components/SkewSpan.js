@@ -8,11 +8,20 @@ const randomRotate = (n: number, s): number => random(s) * n * 2;
 const randomScale = (n = 1, s): number => random(s) * n + 1;
 
 export const SkewSpan = styled.span.attrs({
-  style: ({ isActive, severity }) =>
+  style: ({ isActive, severity, theme }) =>
     isActive
       ? {
           transformOrigin: "center center",
-          transform: `scale(${randomScale(0.25, severity)}) rotate(${randomRotate(15, severity)}deg) translate(${randomTranslate(0.125, severity)}em, ${randomTranslate(0.125, severity)}em)`
+          transform: `scale(${randomScale(
+            0.25,
+            severity
+          )}) rotate(${randomRotate(
+            15,
+            severity
+          )}deg) translate(${randomTranslate(
+            0.125,
+            severity
+          )}em, ${randomTranslate(0.125, severity)}em)`
         }
       : {
           transform: "none"
@@ -21,6 +30,6 @@ export const SkewSpan = styled.span.attrs({
   ${({ isActive }: { isActive: boolean }) => `
     display: inline-block;
     will-change: transform;
-    transition: all 0.2s;
+    transition: transform 0.2s;
   `}
 `;
