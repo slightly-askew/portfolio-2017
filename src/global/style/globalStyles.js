@@ -8,7 +8,7 @@ export default () => injectGlobal`
   ${normalize()}
   ${WebFont.load({
     google: {
-      families: ["Fira Sans:300", "Fira Mono", "Karla", "Montserrat"]
+      families: ["Fira Sans:300", "Fira Mono:400", "Karla:400", "Montserrat:400"]
     }
   })}
 

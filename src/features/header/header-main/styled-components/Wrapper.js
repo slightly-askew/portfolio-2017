@@ -10,10 +10,18 @@ export const Wrapper = styled.div`
     position: relative;
     width: 100%;
     background-color: ${theme.color.background};
-    padding-top: ${theme.scale.s4(-1)};
+    padding: 1em ${theme.scale.s8()};
+    display: flex;
+    align-items: baseline;
 
-    @media (min-width: 675px) {
-      padding-top: 0;
+    & > .mobile-menu-button__svg {
+      top: ${theme.scale.s1(1)};
+      margin-top: -${theme.scale.s1()};
+      margin-right: -3em;
+      height: ${theme.scale.s3(4)};
+      width: auto;
+      left: -5em;
+      flex-shrink: 0;
     }
   `}
 `;

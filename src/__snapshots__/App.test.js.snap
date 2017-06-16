@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<div
+  className="sc-bwzfXH cBlqxl"
+>
+  <h1
+    className="sc-bdVaJa hhFGym"
+  >
+    <span
+      className="sc-bZQynM nxFwU"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Oliver 
+        <span>
+          <span
+            className="sc-jTzLTM dkcJAA"
+            style={
+              Object {
+                "transform": "none",
+              }
+            }
+          >
+            A
+          </span>
+          <span
+            className="sc-jTzLTM dkcJAA"
+            style={
+              Object {
+                "transform": "none",
+              }
+            }
+          >
+            s
+          </span>
+          <span
+            className="sc-jTzLTM dkcJAA"
+            style={
+              Object {
+                "transform": "none",
+              }
+            }
+          >
+            k
+          </span>
+          <span
+            className="sc-jTzLTM dkcJAA"
+            style={
+              Object {
+                "transform": "none",
+              }
+            }
+          >
+            e
+          </span>
+          <span
+            className="sc-jTzLTM dkcJAA"
+            style={
+              Object {
+                "transform": "none",
+              }
+            }
+          >
+            w
+          </span>
+        </span>
+      </a>
+    </span>
+  </h1>
+  <nav
+    className="sc-ifAKCX dJtEZE"
+  >
+    <ul
+      className="sc-htpNat bDuKOK"
+    >
+      <li
+        className="sc-bxivhb iFvobX"
+      >
+        <span
+          className="sc-bZQynM foPkHP"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <a
+            href="/"
+            onClick={[Function]}
+          >
+            Projects
+          </a>
+        </span>
+      </li>
+      <li
+        className="sc-bxivhb iFvobX"
+      >
+        <span
+          className="sc-bZQynM foPkHP"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <span>
+            About
+          </span>
+        </span>
+      </li>
+      <li
+        className="sc-bxivhb iFvobX"
+      >
+        <span
+          className="sc-bZQynM clzhce"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <span>
+            <span
+              className="sc-htoDjs ehehOs"
+            >
+              Download
+              <svg
+                className="sc-dnqmqq ljTVkA"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  className="sc-gzVnrw ijlbIp"
+                  d="M4.98890354,8.25713675 L5.84428923,6.97405821 L5.84428923,6.97405821 C5.88258329,6.91661713 5.96019195,6.90109539 6.01763304,6.93938945 C6.027153,6.94573609 6.03575652,6.95335973 6.04320259,6.96204682 L11.840911,13.72604 L11.840911,13.72604 C11.8858388,13.7784557 11.9647513,13.7845259 12.017167,13.7395981 C12.0220269,13.7354326 12.0265596,13.7308998 12.0307252,13.72604 L17.8284336,6.96204682 L17.8284336,6.96204682 C17.8733614,6.90963109 17.9522739,6.90356089 18.0046896,6.94848866 C18.0133767,6.95593474 18.0210003,6.96453826 18.027347,6.97405821 L18.8827327,8.25713675 L18.8827327,8.25713675 C18.9140594,8.30412692 18.9099876,8.36628547 18.8727985,8.40878735 L12.0298902,16.229254 L12.0298902,16.229254 C11.9844299,16.2812085 11.9054596,16.2864732 11.853505,16.241013 C11.8493287,16.2373587 11.8454003,16.2334303 11.841746,16.229254 L4.99883774,8.40878735 L4.99883774,8.40878735 C4.96164859,8.36628547 4.95757676,8.30412692 4.98890354,8.25713675 Z"
+                />
+              </svg>
+            </span>
+          </span>
+        </span>
+      </li>
+      <li
+        className="sc-bxivhb iFvobX"
+      >
+        <span
+          className="sc-bZQynM foPkHP"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <span>
+            Contact
+          </span>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <a
+    href="https://www.linkedin.com/in/oliver-askew-5791a333/"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <svg
+      className="sc-VigVT HNETR"
+      viewBox="0 0 520 480"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        className="sc-iwsKbI iBzYlk"
+        cx="260"
+        cy="240"
+        r="240"
+      />
+      <rect
+        className="sc-gZMcBi fCfUcm"
+        height="136"
+        width="520"
+        y="270"
+      />
+      <path
+        className="sc-gqjmRU gsXeZJ"
+        d="M386.392,353.192 L386.392,259.496 C386.392,209.296 359.592,185.936 323.864,185.936 C295.032,185.936 282.112,201.8 274.912,212.928 L274.912,189.776 L220.592,189.776 C221.312,205.112 220.592,353.192 220.592,353.192 L274.912,353.192 L274.912,261.928 C274.912,257.056 275.264,252.176 276.704,248.688 C280.624,238.928 289.56,228.824 304.56,228.824 C324.224,228.824 332.08,243.808 332.08,265.768 L332.08,353.2 L386.392,353.2 L386.392,353.192 Z M163.368,167.472 C182.304,167.472 194.104,154.912 194.104,139.224 C193.752,123.2 182.304,111 163.728,111 C145.152,111 133,123.192 133,139.224 C133,154.912 144.792,167.472 163.024,167.472 L163.368,167.472 Z M190.528,353.192 L190.528,189.776 L136.216,189.776 L136.216,353.192 L190.528,353.192 Z"
+      />
+    </svg>
+  </a>
+</div>
+`;

@@ -1,15 +1,30 @@
 //@flow
 
 import React from "react";
+import { compose } from "recompose";
 import { ThemeProvider } from "styled-components";
 import mainTheme from "../../global/style/mainTheme";
+import { detectWidth } from "./componentQueries";
+import wrapWithContainerQuery from "../../global/hoc/wrapWithContainerQuery";
 
 import { HeaderMain } from "./header-main";
 
-const Header = ({ ...props }: {}): React$Element<*> => (
-  <ThemeProvider theme={mainTheme}>
-    <HeaderMain />
-  </ThemeProvider>
-);
+type props = {
+  openMobileNav: () => mixed,
+  closeMobileNav: () => mixed,
+  ui: {
+    mobileMenuIsOpen: boolean
+  }
+};
 
-export default Header;
+const addContainerQuery = compose(detectWidth, wrapWithContainerQuery("main"));
+
+const HeaderMainCQ = addContainerQuery(HeaderMain);
+
+export const Header = (props: props) => {
+  return (
+    <ThemeProvider theme={mainTheme}>
+      <HeaderMainCQ {...props} />
+    </ThemeProvider>
+  );
+};

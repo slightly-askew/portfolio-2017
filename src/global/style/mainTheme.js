@@ -1,52 +1,64 @@
 //@flow
 
 import { baseAdjust } from "./utils";
-import { modularScale } from "polished";
+import { modularScale, lighten, darken } from "polished";
 
 export default {
   type: {
     title: `
-      font-family: "Fira Sans", Helvetica, sans-serif;
+      font-family: "Karla", Helvetica, sans-serif;
       font-weight: 300;
       letter-spacing: -0.04em;
       font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
       font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
-      ${baseAdjust(2)};
+      ${baseAdjust(0)}
     `,
     heading: `
-      font-family: "Montserrat:700", Roboto, sans-serif;
+      font-family: "Montserrat", Roboto, sans-serif;
       font-weight: 700;
       letter-spacing: 0.04em;
       font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
       font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
-      ${baseAdjust(0.4)};
+      ${baseAdjust(0.4)}
     `,
     paragraph: `
-      font-family: "Karla:400", Helvetica, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-family: "Karla", Helvetica, sans-serif;
+      font-weight: 400;
+      letter-spacing: -0.025em;
       font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
+      ${baseAdjust(0)};
     `,
     label: `
-      font-family: "Fira Mono:400", monospace';
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
-      font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
-      ${baseAdjust(0.2)};
+      font-family: "Fira Mono", monospace;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      ${baseAdjust(0.3)};
     `
   },
 
   scale: {
-    s1: (n: number = 1): string => modularScale(n, "1em", "majorSecond"),
     s2: (n: number = 1): string => modularScale(n, "1em", "majorThird"),
     s3: (n: number = 1): string => modularScale(n, "1em", "perfectFourth"),
-    s4: (n: number = 1): string => modularScale(n, "1em", "perfectFifth")
+    s1: (n: number = 1): string => modularScale(n, "1em", "majorSecond"),
+    s4: (n: number = 1): string => modularScale(n, "1em", "perfectFifth"),
+    s8: (n: number = 1): string => modularScale(n, "1em", "octave")
   },
 
   color: {
-    background: "#fbfbfb",
-    black: "#141414",
-    primary: "blue"
+    background: "#f6f6f6",
+    black: "#2e2e2e",
+    primary: "lightblue",
+    pink: "pink",
+    yellow: "yellow",
+    green: "lightgreen"
+  },
+
+  utils: {
+    baseAdjust: (n: number): Array<any> => baseAdjust(n)
+  },
+
+  effect: {
+    lighten: (a: number, c: string) => lighten(a, c),
+    darken: (a: number, c: string) => darken(a, c)
   }
 };
