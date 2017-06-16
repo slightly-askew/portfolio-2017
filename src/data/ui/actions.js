@@ -1,4 +1,5 @@
 //@flow
+export { default as newLayout } from "./breakpoints/actions";
 
 //open mobile navigation
 export function openMobileNav() {
