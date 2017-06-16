@@ -17,7 +17,7 @@ export const updateObjectInArray = (
 
 export const createReducer = (
   initialState: any,
-  handlers: { [string]: <T>(*) => T }
+  handlers: { [string]: (*) => any }
 ) => (state: any = initialState, action: { type: string }): mixed => {
   if (handlers.hasOwnProperty(action.type)) {
     return handlers[action.type](state, action);
