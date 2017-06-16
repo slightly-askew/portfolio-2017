@@ -1,3 +1,7 @@
 //@flow
 
-export default { main: "mobile" };
+export default {
+  main: {
+    width: "mobile"
+  }
+};
