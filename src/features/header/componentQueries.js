@@ -2,14 +2,14 @@
 
 import componentQueries from "react-component-queries";
 
-export default componentQueries({
+export const detectWidth = componentQueries({
   queries: [
-    ({ width }) => {
-      const w = width < 500 ? "s" : width < 900 ? "m" : "l";
-
-      return {
-        compWidth: w
-      };
-    }
+    ({ width }) => ({
+      queries: {
+        width: width < 728 ? "mobile" : "desktop"
+      }
+    })
   ]
 });
+
+//always wrap result in a queries object.
