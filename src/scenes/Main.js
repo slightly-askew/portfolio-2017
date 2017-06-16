@@ -6,4 +6,11 @@ import insertGlobalStyles from "../global/style/globalStyles";
 
 insertGlobalStyles();
 
-export const Main = (props: { [mixed]: mixed }) => <Header {...props} />;
+export const Main = (props: {
+  openMobileNav: () => mixed,
+  closeMobileNav: () => mixed,
+  ui: {
+    mobileMenuIsOpen: boolean
+  },
+  [mixed]: mixed
+}) => <Header {...props} />;
