@@ -2,11 +2,11 @@
 
 import componentQueries from "react-component-queries";
 
-export const detectWidth = componentQueries({
+export const componentQuery = componentQueries({
   queries: [
     ({ width }) => ({
       queries: {
-        width: width < 728 ? "mobile" : "desktop"
+        device: width < 728 ? "mobile" : "desktop"
       }
     })
   ]
