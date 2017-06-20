@@ -25,6 +25,7 @@ export default (props: {
   textOrigins: coordinates[],
   textWidths: number[],
   isActive: boolean,
+  textBoxSize: coordinates,
   textItems: Array<{
     label: string,
     target: string
@@ -33,7 +34,7 @@ export default (props: {
   console.log(props);
   return (
     <Svg {...props}>
-      <mask id="circleMask">
+      <mask id="circleMask" ref={props.maskRef}>
         <rect height="100%" width="100%" x="0" y="0" fill="#000" />
         <Circle {...props} />
       </mask>
