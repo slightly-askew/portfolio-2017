@@ -10,10 +10,11 @@ export const CrazyLine = styled.path.attrs({
 })`
   stroke-dasharray: 24 173;
   will-change: stroke-dashoffset;
-  transition: stroke-dashoffset 0.4s;
+  transition: stroke-dashoffset 1s;
   ${({ top, isOpen }: { top: boolean, isOpen: boolean }) => css`
     stroke-dashoffset: ${isOpen ? 197 : 25};
-    ${!top && css`
+    ${!top &&
+      css`
       transform: matrix(1, 0, 0, -1, 0, 87.485);
     `}
   `}
