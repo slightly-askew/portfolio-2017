@@ -1,7 +1,7 @@
 //@flow
 
 import { updateObject, createReducer } from "../reducers/utils";
-import { default as changeLayout } from "./breakpoints/reducers";
+import { default as changeBreakpoints } from "./breakpoints/reducers";
 
 type state = {
   mobileMenuIsOpen: boolean
@@ -22,6 +22,6 @@ export default createReducer(
     OPEN_MOBILE_NAV: openNav,
     CLOSE_MOBILE_NAV: closeNav,
     TOGGLE_MOBILE_NAV: toggleNav,
-    CHANGE_MAIN_LAYOUT: changeLayout
+    CHANGE_BREAKPOINTS: changeBreakpoints
   }
 );

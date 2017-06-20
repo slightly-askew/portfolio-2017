@@ -1,7 +1,7 @@
 //@flow
 import React from "react";
 //vendor
-import { compose } from "recompose";
+import { pure, compose } from "recompose";
 
 //files
 import Bubble from "./Bubble";
@@ -26,9 +26,10 @@ const addData = compose(
   applyConfig
 );
 
-class NewBubble extends React.Component {
+class BubbleWrapper extends React.Component {
   elementObj = {};
   state = {};
+  maskRef = {};
 
   acceptElement = i => el => {
     this.elementObj[i] = el;
@@ -41,6 +42,8 @@ class NewBubble extends React.Component {
 
   componentDidMount() {
     const elements = Object.values(this.elementObj);
+
+    console.log(this.maskRef);
 
     const bBoxes = elements.map(el => this.getBBoxProperty(el));
 
@@ -61,7 +64,7 @@ class NewBubble extends React.Component {
 
     this.setState(() => ({
       textElementWidths: textWidths,
-      textElementHeights: textHeights,
+      textElementHeights: textHeights
     }));
   }
 
@@ -74,33 +77,15 @@ class NewBubble extends React.Component {
     const newProps = addData(propsForProcess);
     console.log(newProps);
     return (
-      <Bubble {...newProps} elementRef={this.acceptElement}>
+      <Bubble
+        {...newProps}
+        elementRef={this.acceptElement}
+        maskRef={el => (this.maskRef = el)}
+      >
         {this.props.children}
       </Bubble>
     );
   }
 }
 
-const OldBubble = (props: {
-  d?: string,
-  viewBox?: string,
-  children?: [],
-  dividerOrigins?: coordinates[],
-  dividerWidth?: number,
-  textDimensions?: coordinates,
-  pathData?: string,
-  mask?: string,
-  textOrigins?: coordinates[],
-  textWidths?: number[],
-  isActive?: boolean,
-  textItems?: Array<{
-    label?: string,
-    target?: string
-  }>
-}) => (
-  <Bubble {...addData(props)}>
-    {props.children}
-  </Bubble>
-);
-
-export default NewBubble;
+export default BubbleWrapper;
