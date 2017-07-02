@@ -10,9 +10,36 @@ export const CrazyLine = styled.path.attrs({
 })`
   stroke-dasharray: 24 173;
   will-change: stroke-dashoffset;
-  transition: stroke-dashoffset 1s;
-  ${({ top, isOpen }: { top: boolean, isOpen: boolean }) => css`
-    stroke-dashoffset: ${isOpen ? 197 : 25};
+  ${({
+    top,
+    isOpen,
+    buttonStatus
+  }: {
+    top: boolean,
+    isOpen: boolean,
+    buttonStatus: string
+  }) => css`
+    ${buttonStatus === "willOpen" &&
+      `
+      stroke-dashoffset: 21;
+      transition: stroke-dashoffset 0.2s;
+      `}
+    ${isOpen &&
+      `
+      stroke-dashoffset: 197;
+      transition: stroke-dashoffset 1s;
+      `}
+    ${buttonStatus === "willClose" &&
+      `
+      stroke-dashoffset: 209;
+      transition: stroke-dashoffset 0.2s;
+      `}
+    ${!isOpen &&
+      buttonStatus !== "willOpen" &&
+      `
+      stroke-dashoffset: 25;
+      transition: stroke-dashoffset 1s;
+      `}
     ${!top &&
       css`
       transform: matrix(1, 0, 0, -1, 0, 87.485);

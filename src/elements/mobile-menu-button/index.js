@@ -9,20 +9,17 @@ const TapTarget = ({
   newMobileMenuButtonStatus,
   hoverAction
 }: {
-  navAction: ()=>{},
-  newMobileMenuButtonStatus: (string)=>{},
+  navAction: () => {},
+  newMobileMenuButtonStatus: string => {},
   polygonPoints: string,
   hoverAction: string
-}): React$Element<*> => (
-
+}): React$Element<*> =>
   <polygon
-  onClick={navAction}
-  points={polygonPoints}
-  onMouseEnter={() => newMobileMenuButtonStatus(hoverAction)}
-  onMouseLeave={() => newMobileMenuButtonStatus('idle')}
-  />
-)
-
+    onClick={navAction}
+    points={polygonPoints}
+    onMouseEnter={() => newMobileMenuButtonStatus(hoverAction)}
+    onMouseLeave={() => newMobileMenuButtonStatus("idle")}
+  />;
 
 export const MobileMenuButton = ({
   openMobileNav,
@@ -31,37 +28,40 @@ export const MobileMenuButton = ({
   ui
 }: {
   openMobileNav: () => {},
-  closeMobileNav: ()=>{},
-  newMobileMenuButtonStatus: ()=>{},
+  closeMobileNav: () => {},
+  newMobileMenuButtonStatus: () => {},
   ui: {
     mobileMenuIsOpen: boolean,
     mobileMenuButtonStatus: string
   }
-}) =>{
+}) => {
   const menuIsOpen = ui.mobileMenuIsOpen;
   const buttonStatus = ui.mobileMenuButtonStatus;
 
-  return <Svg>
-    <g fill="none" fillRule="evenodd">
-      <LineGroup>
-        <CrazyLine top isOpen={menuIsOpen} buttonStatus={buttonStatus} />
-        <MiddleLine isOpen={menuIsOpen} buttonStatus={buttonStatus} />
-        <CrazyLine isOpen={menuIsOpen} buttonStatus={buttonStatus} />
-      </LineGroup>
+  return (
+    <Svg>
+      <g fill="none" fillRule="evenodd">
+        <LineGroup>
+          <CrazyLine top isOpen={menuIsOpen} buttonStatus={buttonStatus} />
+          <CrazyLine isOpen={menuIsOpen} buttonStatus={buttonStatus} />
+          <MiddleLine isOpen={menuIsOpen} buttonStatus={buttonStatus} />
+        </LineGroup>
 
-      <g transform="translate(0 9)" fill="transparent">
-        <TapTarget
-          navAction={closeMobileNav}
-          newMobileMenuButtonStatus={newMobileMenuButtonStatus}
-          polygonPoints="0 0 48 0 48 48 0 48"
-          hoverAction='willClose'
-        />
-        <TapTarget
-          navAction={openMobileNav}
-          newMobileMenuButtonStatus={newMobileMenuButtonStatus}
-          polygonPoints="80 0 128 0 128 48 80 48"
-          hoverAction='willOpen'
+        <g transform="translate(0 9)" fill="transparent">
+          <TapTarget
+            navAction={closeMobileNav}
+            newMobileMenuButtonStatus={newMobileMenuButtonStatus}
+            polygonPoints="0 0 48 0 48 48 0 48"
+            hoverAction="willClose"
           />
+          <TapTarget
+            navAction={openMobileNav}
+            newMobileMenuButtonStatus={newMobileMenuButtonStatus}
+            polygonPoints="80 0 128 0 128 48 80 48"
+            hoverAction="willOpen"
+          />
+        </g>
       </g>
-    </g>
-  </Svg>};
+    </Svg>
+  );
+};
