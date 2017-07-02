@@ -16,12 +16,16 @@ const closeNav = (state: state, action) =>
 const toggleNav = (state: state, action) =>
   updateObject(state, { mobileMenuIsOpen: !state.mobileMenuIsOpen });
 
+const toggleMobileNavHoverState = (state: state, action: { payload: { stateToFollow: string } }) =>
+  updateObject(state, {mobileMenuButtonStatus: action.payload.stateToFollow})
+
 export default createReducer(
   {},
   {
     OPEN_MOBILE_NAV: openNav,
     CLOSE_MOBILE_NAV: closeNav,
     TOGGLE_MOBILE_NAV: toggleNav,
-    CHANGE_BREAKPOINTS: changeBreakpoints
+    CHANGE_BREAKPOINTS: changeBreakpoints,
+    NEW_NAV_BUTTON_STATUS: toggleMobileNavHoverState,
   }
 );

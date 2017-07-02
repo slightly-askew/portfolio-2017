@@ -21,3 +21,13 @@ export function toggleMobileNav() {
     type: "TOGGLE_MOBILE_NAV"
   };
 }
+
+//hover to open mobile navigation
+export const newMobileMenuButtonStatus = (stateToFollow: ['willOpen' | 'willClose' | 'idle']) => {
+  return {
+    type: "NEW_NAV_BUTTON_STATUS",
+    payload: {
+      stateToFollow
+    }
+  }
+}
