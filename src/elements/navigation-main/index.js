@@ -14,8 +14,8 @@ const ActiveLi = addActiveState(Li);
 type props = {};
 
 export const MainNav = (props: {}) =>
-  <Nav>
-    <Ul>
+  <Nav {...props}>
+    <Ul {...props}>
       <ActiveLi>
         <Highlight url="/">Projects</Highlight>
       </ActiveLi>
@@ -30,17 +30,8 @@ export const MainNav = (props: {}) =>
         />
       </ActiveLi>
       <ActiveLi><Highlight url="/">Contact</Highlight></ActiveLi>
-      <ActiveLi>
-        <Chevron>Download</Chevron>
-        <Bubble
-          textItems={[
-            { label: "Resume", target: "#" },
-            { label: "Portfoliontopolov", target: "#" }
-          ]}
-        />
-      </ActiveLi>
     </Ul>
-    <Ul>
+    <Ul {...props}>
       <ActiveLi><LinkedInIcon /></ActiveLi>
       <ActiveLi><OctocatIcon /></ActiveLi>
     </Ul>
