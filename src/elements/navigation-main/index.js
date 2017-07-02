@@ -19,7 +19,9 @@ export const MainNav = (props: {}) =>
       <ActiveLi>
         <Highlight url="/">Projects</Highlight>
       </ActiveLi>
-      <ActiveLi><Highlight url="/">About</Highlight></ActiveLi>
+      <ActiveLi>
+        <Highlight url="/">About</Highlight>
+      </ActiveLi>
       <ActiveLi>
         <Chevron>Download</Chevron>
         <Bubble
@@ -29,11 +31,16 @@ export const MainNav = (props: {}) =>
           ]}
         />
       </ActiveLi>
-      <ActiveLi><Highlight url="/">Contact</Highlight></ActiveLi>
+      <ActiveLi>
+        <Highlight url="/">Contact</Highlight>
+      </ActiveLi>
     </Ul>
     <Ul {...props}>
-      <ActiveLi><LinkedInIcon /></ActiveLi>
-      <ActiveLi><OctocatIcon /></ActiveLi>
+      <ActiveLi>
+        <LinkedInIcon />
+      </ActiveLi>
+      <ActiveLi>
+        <OctocatIcon />
+      </ActiveLi>
     </Ul>
-
   </Nav>;
