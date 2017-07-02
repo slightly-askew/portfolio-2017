@@ -1,14 +1,25 @@
 //@flow
 
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const Nav = styled.nav`
-  display: inline-block;
-  opacity: 1;
-  background: transparent;
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  flex-grow: 1;
-  padding-left: 1em;
+
+opacity: 1;
+background: transparent;
+z-index: 10;
+display: flex;
+flex-grow: 1;
+justify-content: space-between;
+position: relative;
+
+  ${({theme, ui}) => css`
+    ${ui.breakpoints.main.device === 'desktop' && css`
+      display: inline-flex;
+      padding-left: 1em;
+    `}
+    ${ui.breakpoints.main.device === 'mobile' && css`
+      flex-direction: column;
+      align-items: baseline;
+    `}
+  `}
 `;

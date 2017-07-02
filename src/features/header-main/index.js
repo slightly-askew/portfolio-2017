@@ -10,12 +10,14 @@ import addActiveState from "../../global/hoc/addActiveState";
 
 type props = {
   openMobileNav: () => mixed,
-  closeMobileNav: () => mixed,
+  closeMobileNav: () => {},
+  newMobileMenuButtonStatus: ()=>{},
   ui: {
+    mobileMenuButtonStatus: string,
     mobileMenuIsOpen: boolean,
     breakpoints: {
-      main: {
-        device: string
+      [string]: {
+        [string]: mixed
       }
     }
   }

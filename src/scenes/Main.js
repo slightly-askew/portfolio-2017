@@ -14,17 +14,18 @@ import wrapWithComponentQuery from "../global/hoc/wrapWithComponentQuery";
 insertGlobalStyles();
 
 type props = {
-  openMobileNav: () => mixed,
-  closeMobileNav: () => mixed,
+  openMobileNav: () => {},
+  closeMobileNav: () => {},
+  newMobileMenuButtonStatus: ()=>{},
   ui: {
+    mobileMenuButtonStatus: string,
     mobileMenuIsOpen: boolean,
     breakpoints: {
       [string]: {
         [string]: mixed
       }
     }
-  },
-  [mixed]: mixed
+  }
 };
 
 const enhance = compose(componentQuery, wrapWithComponentQuery("main"));

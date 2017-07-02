@@ -14,12 +14,14 @@ const ActiveLi = addActiveState(Li);
 type props = {};
 
 export const MainNav = (props: {}) =>
-  <Nav>
-    <Ul>
+  <Nav {...props}>
+    <Ul {...props}>
       <ActiveLi>
         <Highlight url="/">Projects</Highlight>
       </ActiveLi>
-      <ActiveLi><Highlight url="/">About</Highlight></ActiveLi>
+      <ActiveLi>
+        <Highlight url="/">About</Highlight>
+      </ActiveLi>
       <ActiveLi>
         <Chevron>Download</Chevron>
         <Bubble
@@ -29,20 +31,16 @@ export const MainNav = (props: {}) =>
           ]}
         />
       </ActiveLi>
-      <ActiveLi><Highlight url="/">Contact</Highlight></ActiveLi>
       <ActiveLi>
-        <Chevron>Download</Chevron>
-        <Bubble
-          textItems={[
-            { label: "Resume", target: "#" },
-            { label: "Portfoliontopolov", target: "#" }
-          ]}
-        />
+        <Highlight url="/">Contact</Highlight>
       </ActiveLi>
     </Ul>
-    <Ul>
-      <ActiveLi><LinkedInIcon /></ActiveLi>
-      <ActiveLi><OctocatIcon /></ActiveLi>
+    <Ul {...props}>
+      <ActiveLi>
+        <LinkedInIcon />
+      </ActiveLi>
+      <ActiveLi>
+        <OctocatIcon />
+      </ActiveLi>
     </Ul>
-
   </Nav>;

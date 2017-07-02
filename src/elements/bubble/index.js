@@ -26,7 +26,10 @@ const addData = compose(
   applyConfig
 );
 
+let bubbleId = 0;
+
 class BubbleWrapper extends React.Component {
+  maskId = `bubble-mask--${bubbleId++}`;
   elementObj = {};
   state = {};
   maskRef = {};
@@ -80,7 +83,7 @@ class BubbleWrapper extends React.Component {
       <Bubble
         {...newProps}
         elementRef={this.acceptElement}
-        maskRef={el => (this.maskRef = el)}
+        maskId={this.maskId}
       >
         {this.props.children}
       </Bubble>

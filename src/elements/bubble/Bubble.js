@@ -15,13 +15,13 @@ type coordinates = {
 
 export default (props: {
   children: {},
+  maskId: string,
   d: string,
   viewBox: string,
   dividerOrigins: coordinates[],
   dividerWidth: number,
   textDimensions: coordinates,
   pathData: string,
-  mask: string,
   textOrigins: coordinates[],
   textWidths: number[],
   isActive: boolean,
@@ -34,15 +34,19 @@ export default (props: {
   console.log(props);
   return (
     <Svg {...props}>
-      <mask id="circleMask" ref={props.maskRef}>
+      <mask id={props.maskId}>
         <rect height="100%" width="100%" x="0" y="0" fill="#000" />
         <Circle {...props} />
       </mask>
-      <Path {...props} mask="url(#circleMask)" />
-      <Text {...props} mask="url(#circleMask)" textBoxSize={props.textBoxSize}>
+      <Path {...props} mask={`url(#${props.maskId})`} />
+      <Text
+        {...props}
+        mask={`url(#${props.maskId})`}
+        textBoxSize={props.textBoxSize}
+      >
         {props.children}
       </Text>
-      <Dividers {...props} mask="url(#circleMask)" />
+      <Dividers {...props} mask={`url(#${props.maskId})`} />
     </Svg>
   );
 };
