@@ -11,6 +11,7 @@
     "animejs": "^2.0.2",
     "babel-polyfill": "^6.23.0",
     "eslint": "^3.19.0",
+    "flow-typed": "^2.1.2",
     "history": "^4.6.1",
     "lodash": "^4.17.4",
     "polished": "^1.0.2",
@@ -31,7 +32,9 @@
     "webfontloader": "^1.6.27"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-preset-flow": "^6.23.0",
     "enzyme": "^2.8.2",
     "eslint-plugin-flowtype": "^2.33.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
