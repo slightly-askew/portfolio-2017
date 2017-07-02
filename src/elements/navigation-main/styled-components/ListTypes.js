@@ -2,15 +2,32 @@
 
 import styled, { css } from "styled-components";
 
-export const Ul = styled.ul`
-  ${({ theme }: { theme: Theme }) => css`
+type ui = {
+  breakpoints: {
+    main: {
+      device: ['mobile' | 'desktop']
+    }
+  }
+}
 
-    padding: 0 0 0 ${theme.scale.s1(-3)};
+export const Ul = styled.ul`
+  ${({ theme, ui }: { theme: Theme, ui: ui}) => css`
+
+
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
     list-style: none;
     margin: 0;
+
+    ${ui.breakpoints.main.device === 'desktop' && css`
+      padding: 0 0 0 ${theme.scale.s1(-3)};
+    `}
+    ${ui.breakpoints.main.device === 'mobile' && css`
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20vh;
+    `}
 
   `}
 `;
