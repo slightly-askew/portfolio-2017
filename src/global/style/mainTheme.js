@@ -6,7 +6,7 @@ import { modularScale, lighten, darken } from "polished";
 export default {
   type: {
     title: `
-      font-family: "Karla", Helvetica, sans-serif;
+      font-family: "Karla", "Roboto", sans-serif;
       font-weight: 300;
       letter-spacing: -0.04em;
       font-variant-ligatures: common-ligatures contextual discretionary-ligatures;
