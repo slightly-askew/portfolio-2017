@@ -5,9 +5,10 @@ import { routerMiddleware } from "react-router-redux";
 import createHistory from "history/createBrowserHistory";
 import reducers from "./data/reducers";
 import cards from "./data/state/cards";
+import mainNavigation from "./data/state/mainNavigation";
 import ui from "./data/ui";
 
-const defaultState = { cards, ui };
+const defaultState = { cards, mainNavigation, ui };
 export const history = createHistory();
 
 const middlewares = [routerMiddleware(history)];
