@@ -8,7 +8,7 @@ export const updateObject = (
 export const updateObjectInArray = (
   array: mixed[],
   id: number,
-  updateCallback: () => mixed
+  updateCallback: (*) => mixed
 ): mixed[] => [
   ...array.slice(0, id),
   updateCallback(array[id]),
@@ -17,7 +17,7 @@ export const updateObjectInArray = (
 
 export const createReducer = (
   initialState: any,
-  handlers: { [string]: (*) => any }
+  handlers: { [string]: (*, *) => any }
 ) => (state: any = initialState, action: { type: string }): mixed => {
   if (handlers.hasOwnProperty(action.type)) {
     return handlers[action.type](state, action);
