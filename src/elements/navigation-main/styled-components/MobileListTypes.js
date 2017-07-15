@@ -5,13 +5,13 @@ import styled, { css } from "styled-components";
 type ui = {
   breakpoints: {
     main: {
-      device: ['mobile' | 'desktop']
+      device: ["mobile" | "desktop"]
     }
   }
-}
+};
 
 export const Ul = styled.ul`
-  ${({ theme, ui }: { theme: Theme, ui: ui}) => css`
+  ${({ theme, ui }: { theme: Theme, ui: ui }) => css`
 
 
     display: flex;
@@ -20,16 +20,19 @@ export const Ul = styled.ul`
     list-style: none;
     margin: 0;
 
-    ${ui.breakpoints.main.device === 'desktop' && css`
+    ${ui.breakpoints.main.device === "desktop" &&
+      css`
       padding: 0 0 0 ${theme.scale.s1(-3)};
     `}
-    ${ui.breakpoints.main.device === 'mobile' && css`
+    ${ui.breakpoints.main.device === "mobile" &&
+      css`
+      width: 100%;
       flex-direction: column;
       align-items: center;
       margin-top: 20vh;
     `}
 
-  `}
+  `};
 `;
 
 export const Li = styled.li`
@@ -51,5 +54,5 @@ export const Li = styled.li`
 
 
   `;
-  }}
+  }};
 `;
