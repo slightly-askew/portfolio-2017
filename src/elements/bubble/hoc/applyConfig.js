@@ -1,9 +1,5 @@
 //@flow
+import defaultConfig from "../config";
 
-import React, { Component } from 'react';
-import defaultConfig from '../config';
-
-export default (props: {}) => (
-
-  Object.assign({},{...defaultConfig},{...props})
-)
+export default (props: {}) =>
+  Object.assign({}, { ...defaultConfig }, { ...props });

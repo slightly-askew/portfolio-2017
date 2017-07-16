@@ -1,5 +1,4 @@
 //@flow
-/* eslint-disable prettier */
 
 //styled-components theme
 
@@ -17,7 +16,7 @@ declare type Theme = {
     "baseAdjust": (n: number) => string
   },
   effect: {
-    ["lighten" | "darken"]: () => string
+    ["lighten" | "darken"]: (number, *) => string
   }
 };
 
@@ -45,7 +44,7 @@ declare var module: {
     accept(path: string, callback: () => void): void
   }
 };
- //Bubble
+//Bubble
 declare type originTuple = [number, number];
 
 declare type dataObject = {
@@ -56,7 +55,7 @@ declare type dataObject = {
 };
 
 declare type defaultBubbleConfig = {
-  children?: Array<string | Array<string | object<string>>>,
+  children?: Array<string | Array<string | {}>>,
   characterWidth: number,
   minTextWidth: number,
   paddingLrg: number,
@@ -66,14 +65,17 @@ declare type defaultBubbleConfig = {
   columns: number,
   size: string,
   underlineAdjustment: number,
-  speachDirection: String<"top-left"
+  speachDirection: [
+
+      | "top-left"
       | "top-right"
       | "right-top"
       | "right-bottom"
       | "bottom-left"
       | "bottom-right"
       | "left-bottom"
-      | "bottom-right">,
+      | "bottom-right"
+  ],
   d: string,
   viewBox: string,
   origin: {
@@ -93,7 +95,9 @@ declare type optionalBubbleConfig = {
   columns?: number,
   size?: string,
   underlineAdjustment?: number,
-  speachDirection?: String<"top-left"
+  speachDirection?: [
+
+      | "top-left"
       | "top"
       | "top-right"
       | "right-top"
@@ -104,5 +108,6 @@ declare type optionalBubbleConfig = {
       | "bottom-right"
       | "left-bottom"
       | "bottom"
-      | "bottom-right">
+      | "bottom-right"
+  ]
 };

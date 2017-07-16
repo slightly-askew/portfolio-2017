@@ -37,19 +37,19 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   ${({ theme }: { theme: Theme }) => {
-    const textColor = theme.color.black;
+    const scale = theme.scale;
 
     return css`
     ${theme.type.paragraph};
-    font-size: ${theme.scale.s2(-1)};
-    line-height: ${theme.scale.s8()};
+    font-size: ${scale.s2(-1)};
+    line-height: ${scale.s8()};
     position: relative;
-    padding: 0 ${theme.scale.s2(-1)};
+    padding: 0 ${scale.s2(-1)};
     transition: color 0.2s;
     z-index: 1;
 
     & > .bubble__svg {
-      right: -${theme.scale.s1(3)};
+      right: -${scale.s1(3)};
     }
 
 

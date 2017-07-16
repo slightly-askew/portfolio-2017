@@ -1,11 +1,11 @@
 //@flow
-
+import { css } from "styled-components";
 import { baseAdjust } from "./utils";
 import { modularScale, lighten, darken } from "polished";
 
 export default {
   type: {
-    title: `
+    title: css`
       font-family: "Karla", "Roboto", sans-serif;
       font-weight: 300;
       letter-spacing: -0.04em;
@@ -13,7 +13,7 @@ export default {
       font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
       ${baseAdjust(0)}
     `,
-    heading: `
+    heading: css`
       font-family: "Montserrat", Roboto, sans-serif;
       font-weight: 700;
       letter-spacing: 0.04em;
@@ -21,14 +21,14 @@ export default {
       font-feature-settings: "kern", "liga", "clig", "calt", "dlig";
       ${baseAdjust(0.4)}
     `,
-    paragraph: `
+    paragraph: css`
       font-family: "Karla", Helvetica, sans-serif;
       font-weight: 400;
       letter-spacing: -0.025em;
       font-feature-settings: "kern", "liga", "clig", "calt", "onum", "pnum";
       ${baseAdjust(0)};
     `,
-    label: `
+    label: css`
       font-family: "Fira Mono", monospace;
       font-weight: 400;
       letter-spacing: -0.02em;

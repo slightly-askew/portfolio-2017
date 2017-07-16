@@ -7,9 +7,7 @@ type FunctionComponent<P> = (props: P) => ?React$Element<any>;
 type ClassComponent<D, P, S> = Class<React$Component<D, P, S>>;
 type GenericComponent = ClassComponent<*, *, *> | FunctionComponent<*>;
 
-const addActiveState = (
-  Component: ClassComponent<*, *, *> | FunctionComponent<*>
-): ClassComponent<*, *, *> =>
+const addActiveState = (Component: GenericComponent): ClassComponent<*, *, *> =>
   class extends React.Component {
     state: {
       isActive: boolean

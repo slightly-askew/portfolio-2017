@@ -1,8 +1,14 @@
 {
+  "parser": "babel-eslint",
   "extends": [
+    "react-app",
     "plugin:flowtype/recommended"
   ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+    },
   "plugins": [
-    "flowtype"
-  ]
+    "flowtype", "babel", "react", "react-native", "jest", "jsx-a11y"
+  ],
 }

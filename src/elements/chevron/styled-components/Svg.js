@@ -1,6 +1,6 @@
 //@flow
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Svg = styled.svg.attrs({
   className: "chevron__svg",
@@ -14,7 +14,7 @@ export const Svg = styled.svg.attrs({
     theme: Theme,
     isActive: boolean,
     stateful: boolean
-  }): string => `
+  }): * => css`
 
     position: relative;
     height: ${theme.scale.s1(2)};
@@ -24,13 +24,12 @@ export const Svg = styled.svg.attrs({
     transform-origin: 60% 60%;
     will-change: transform fill;
     transition: all 0.2s ease-in-out;
+
     ${isActive && stateful
-      ? `
+      ? css`
       fill: ${theme.effect.darken(0.2, theme.color.black)};
       transform: rotate(180deg);
-
     `
       : ``}
-
   `}
 `;

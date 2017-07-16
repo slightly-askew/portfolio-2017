@@ -8,10 +8,10 @@ import { Skewify } from "../../elements/skewify";
 import { MobileMenuButton } from "../../elements/mobile-menu-button";
 import addActiveState from "../../global/hoc/addActiveState";
 
-type props = {
+type Props = {
   openMobileNav: () => mixed,
   closeMobileNav: () => {},
-  newMobileMenuButtonStatus: ()=>{},
+  newMobileMenuButtonStatus: () => {},
   ui: {
     mobileMenuButtonStatus: string,
     mobileMenuIsOpen: boolean,
@@ -25,7 +25,7 @@ type props = {
 
 const ActiveTitle = addActiveState(Title);
 
-export const HeaderMain = (props: props) =>
+export const HeaderMain = (props: Props) =>
   <Wrapper>
     {props.ui.breakpoints.main.device === "mobile" &&
       <MobileMenuButton {...props} />}

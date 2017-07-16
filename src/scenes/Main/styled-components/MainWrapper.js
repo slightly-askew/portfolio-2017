@@ -1,9 +1,6 @@
 //@flow
 
 import styled from "styled-components";
-import { onlyUpdateForKeys, compose } from "recompose";
-
-const enhance = compose(onlyUpdateForKeys(["mobileMenuIsOpen"]));
 
 const setTransformWidth = ({
   mobileMenuIsOpen,
@@ -17,7 +14,7 @@ const setTransformWidth = ({
   return mobileMenuIsOpen ? mobileMenuWidth : 0;
 };
 
-export const MainWrapper = styled.div.attrs({
+const MainWrapper = styled.div.attrs({
   style: props => ({
     transform: `translateX(${setTransformWidth(props)}px)`
   })
@@ -28,3 +25,5 @@ export const MainWrapper = styled.div.attrs({
   will-change: transform;
   transition: transform 0.4s ease-in-out;
 `;
+
+export default MainWrapper;

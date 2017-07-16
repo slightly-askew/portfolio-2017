@@ -56,7 +56,7 @@ class Text extends React.Component {
     textItems,
     ...props
   }: {
-    elementRef: () => any,
+    elementRef: (*) => any,
     textOrigins: Array<coordinates>,
     textItems: Array<{
       label: string,

@@ -1,23 +1,23 @@
-//@flow
+// @flow
 
 import { updateObject, createReducer } from "../reducers/utils";
-import { default as changeBreakpoints } from "./breakpoints/reducers";
+import changeBreakpoints from "./breakpoints/reducers";
+import type { ButtonStatusAction } from "./actions";
 
-type state = {
-  mobileMenuIsOpen: boolean
-};
-
-const openNav = (state: state, action) =>
+const openNav = <S: { mobileMenuIsOpen?: boolean }>(state: S): S =>
   updateObject(state, { mobileMenuIsOpen: true });
 
-const closeNav = (state: state, action) =>
+const closeNav = <S: { mobileMenuIsOpen?: boolean }>(state: S): S =>
   updateObject(state, { mobileMenuIsOpen: false });
 
-const toggleNav = (state: state, action) =>
+const toggleNav = <S: { mobileMenuIsOpen?: boolean }>(state: S): S =>
   updateObject(state, { mobileMenuIsOpen: !state.mobileMenuIsOpen });
 
-const toggleMobileNavHoverState = (state: state, action: { payload: { stateToFollow: string } }) =>
-  updateObject(state, {mobileMenuButtonStatus: action.payload.stateToFollow})
+const toggleMobileNavHoverState = <S: { mobileMenuButtonStatus?: string }>(
+  state: S,
+  action: ButtonStatusAction
+): S =>
+  updateObject(state, { mobileMenuButtonStatus: action.payload.stateToFollow });
 
 export default createReducer(
   {},
@@ -26,6 +26,6 @@ export default createReducer(
     CLOSE_MOBILE_NAV: closeNav,
     TOGGLE_MOBILE_NAV: toggleNav,
     CHANGE_BREAKPOINTS: changeBreakpoints,
-    NEW_NAV_BUTTON_STATUS: toggleMobileNavHoverState,
+    NEW_NAV_BUTTON_STATUS: toggleMobileNavHoverState
   }
 );

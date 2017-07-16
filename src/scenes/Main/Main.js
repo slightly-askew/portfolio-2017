@@ -1,22 +1,22 @@
-//@flow
+// @flow
 
-import React from "react";
-import { pure, compose } from "recompose";
-import { HeaderMain } from "../features/header-main";
-import { MobileMenu } from "../features/mobile-menu";
-import insertGlobalStyles from "../global/style/globalStyles";
+import { compose } from "recompose";
+import { HeaderMain } from "../../features/header-main";
+import { MobileMenu } from "../../features/mobile-menu";
 import { ThemeProvider } from "styled-components";
-import mainTheme from "../global/style/mainTheme";
+import insertGlobalStyles from "../../global/style/globalStyles";
+import React from "react";
+import mainTheme from "../../global/style/mainTheme";
 import { MainWrapper } from "./styled-components";
 import { componentQuery } from "./componentQueries";
-import wrapWithComponentQuery from "../global/hoc/wrapWithComponentQuery";
+import wrapWithComponentQuery from "../../global/hoc/wrapWithComponentQuery";
 
 insertGlobalStyles();
 
 type props = {
   openMobileNav: () => {},
   closeMobileNav: () => {},
-  newMobileMenuButtonStatus: ()=>{},
+  newMobileMenuButtonStatus: (*) => {},
   ui: {
     mobileMenuButtonStatus: string,
     mobileMenuIsOpen: boolean,

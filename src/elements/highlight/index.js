@@ -7,16 +7,28 @@ import { Link } from "react-router-dom";
 import { Underline } from "./Underline";
 
 export class Highlight extends React.Component {
-  createLink = ({ url }: { url: string } = { url: "" }, children: mixed) => {
+  createLink = ({ url }: { url: string } = { url: "" }, children: Children) => {
     if (url) {
       const extLink = url.match(/^http/);
       if (extLink) {
-        return <a href={url}>{children}</a>;
+        return (
+          <a href={url}>
+            {children}
+          </a>
+        );
       } else {
-        return <Link to={url}>{children}</Link>;
+        return (
+          <Link to={url}>
+            {children}
+          </Link>
+        );
       }
     } else {
-      return <span>{children}</span>;
+      return (
+        <span>
+          {children}
+        </span>
+      );
     }
   };
 

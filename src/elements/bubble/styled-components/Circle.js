@@ -2,7 +2,6 @@
 
 //vendor
 import styled from "styled-components";
-import { onlyUpdateForKeys } from "recompose";
 
 //files
 import findRadius from "../helpers/findRadius";

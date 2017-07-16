@@ -27,7 +27,10 @@ export default (props: Props) => {
     return Math.max(max ? max : 0, i ? i : 0);
   };
 
-  const getMaximumRangeCount = (shape: {shape: Array<Array<number>>, numColumns: number}): number[] => {
+  const getMaximumRangeCount = (shape: {
+    shape: Array<Array<number>>,
+    numColumns: number
+  }): number[] => {
     //const rangeSizes = new Array(shape.numColumns).fill(1);
     const rangeSizes = [];
     shape.shape.map(row =>
@@ -38,11 +41,10 @@ export default (props: Props) => {
     return rangeSizes;
   };
 
-  const childrenAsWidths = props.textElementWidths ? Object.values(props.textElementWidths) : new Array(props.textItems.length).fill(1);
-  const widthsAsShape = createRowDataShape(
-    childrenAsWidths,
-    props.textColumns
-  );
+  const childrenAsWidths = props.textElementWidths
+    ? Object.values(props.textElementWidths)
+    : new Array(props.textItems.length).fill(1);
+  const widthsAsShape = createRowDataShape(childrenAsWidths, props.textColumns);
   const colWidths = getMaximumRangeCount(widthsAsShape);
   const columnMargin = props.textMargin * 2;
 
@@ -65,32 +67,30 @@ export default (props: Props) => {
 
   // Height
   const numRows = widthsAsShape.numRows;
-  const childrenAsHeights = props.textElementHeights ? Object.values(props.textElementHeights) : new Array(props.textItems.length).fill(1);
-  const heightShape = createRowDataShape(childrenAsHeights, numRows)
+  const childrenAsHeights = props.textElementHeights
+    ? Object.values(props.textElementHeights)
+    : new Array(props.textItems.length).fill(1);
+  const heightShape = createRowDataShape(childrenAsHeights, numRows);
   const rowHeights = getMaximumRangeCount(heightShape);
 
-  const lines = props.textItems.length;
-  const linesAccountingForColumns = Math.ceil(lines / props.textColumns);
-  const lineHeight = props.textHeight + props.textMargin;
-
-
-  const configureY = (rowHeights: number[], margin: number): {origins: number[], height: number} => {
+  const configureY = (
+    rowHeights: number[],
+    margin: number
+  ): { origins: number[], height: number } => {
     let origins = [];
     const height = rowHeights.reduce((acc, h, i, ary) => {
-      acc += h
-      origins.push(acc)
-      if ((i + 1) < ary.length) {
+      acc += h;
+      origins.push(acc);
+      if (i + 1 < ary.length) {
         acc += margin;
       }
-      return acc
-    },0);
-    return ({
+      return acc;
+    }, 0);
+    return {
       origins: origins,
       height: height
-    });
-  }
-
-
+    };
+  };
 
   const yAxis = configureY(rowHeights, props.textMargin);
 

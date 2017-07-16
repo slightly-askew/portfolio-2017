@@ -1,4 +1,4 @@
-//@flow
+// @flow
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -9,8 +9,8 @@ import store, { history } from "./store";
 
 import App from "./App";
 
-const render = Component => {
-  return ReactDOM.render(
+const render = Component =>
+  ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Route path="/" component={Component} />
@@ -18,13 +18,12 @@ const render = Component => {
     </Provider>,
     document.getElementById("root")
   );
-};
 
 render(App);
 
 if (module.hot) {
   module.hot.accept("./App", () => {
-    const NextApp = require("./App").default;
+    const NextApp = App;
     render(NextApp);
   });
 }

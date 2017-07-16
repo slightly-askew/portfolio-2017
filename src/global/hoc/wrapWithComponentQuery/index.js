@@ -20,7 +20,7 @@ export default (componentName: string) => (
 ): Class<ReactComponent> => {
   return class extends Component {
     props: {
-      newLayout: () => mixed,
+      newLayout: (*, *) => mixed,
       ui: {
         breakpoints: {
           [componentName: string]: {
@@ -36,7 +36,7 @@ export default (componentName: string) => (
 
     updateLayouts = ({ queryEffects, ...props }) => {
       const { newLayout, ui, queries } = props;
-      return Object.keys(queries).map(i => {
+      Object.keys(queries).forEach(i => {
         if (!isEqual(ui.breakpoints[componentName][i], queries[i])) {
           newLayout(`${componentName}`, { [i]: queries[i] });
           queryEffects && queryEffects.map(q => q(props));

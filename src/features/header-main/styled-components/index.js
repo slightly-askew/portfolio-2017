@@ -1,4 +1,4 @@
-//@flow
+// @flow
 
 export { Title } from "./Title";
-export { Wrapper } from "./Wrapper";
+export { default as Wrapper } from "./Wrapper";

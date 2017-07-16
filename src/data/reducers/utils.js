@@ -1,24 +1,24 @@
-//@flow
+// @flow
 
-export const updateObject = (
-  oldObj: { [string]: any },
-  newVals: { [string]: any }
-): { [string]: any } => Object.assign({}, oldObj, newVals);
+export const updateObject = <O: { [string]: any }, N: {}>(
+  oldObj: O,
+  newVals: N
+): O => Object.assign({}, oldObj, newVals);
 
-export const updateObjectInArray = (
-  array: mixed[],
+export const updateObjectInArray = <A: {}[]>(
+  array: A,
   id: number,
-  updateCallback: (*) => mixed
-): mixed[] => [
+  updateCallback: ({}) => {}
+): A => [
   ...array.slice(0, id),
   updateCallback(array[id]),
   ...array.slice(id + 1)
 ];
 
-export const createReducer = (
-  initialState: any,
-  handlers: { [string]: (*, *) => any }
-) => (state: any = initialState, action: { type: string }): mixed => {
+export const createReducer = <S: {}, A: { type: string }>(
+  initialState: S,
+  handlers: { [string]: (S, A) => S }
+) => (state: S = initialState, action: A): S => {
   if (handlers.hasOwnProperty(action.type)) {
     return handlers[action.type](state, action);
   }

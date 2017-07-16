@@ -1,20 +1,21 @@
-//@flow
+// @flow
 
 import { updateObject } from "../../reducers/utils";
 
-export default (
-  state: { breakpoints: { main: string } },
-  action: {
-    type: string,
-    component: string,
-    query: { [string]: string }
-  }
-) =>
+export default <
+  S: { breakpoints?: { [string]: {} } },
+  A: { component: string, query: {} }
+>(
+  state: S,
+  action: A
+): S =>
   updateObject(state, {
-    breakpoints: updateObject(state.breakpoints, {
-      [action.component]: updateObject(
-        state.breakpoints[action.component],
-        action.query
-      )
-    })
+    breakpoints: state.breakpoints
+      ? updateObject(state.breakpoints, {
+          [action.component]: updateObject(
+            state.breakpoints[action.component],
+            action.query
+          )
+        })
+      : {}
   });

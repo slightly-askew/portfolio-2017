@@ -9,12 +9,14 @@
   "dependencies": {
     "@kadira/storybook-deployer": "^1.2.0",
     "animejs": "^2.0.2",
+    "babel-plugin-polished": "^1.1.0",
     "babel-polyfill": "^6.23.0",
-    "eslint": "^3.19.0",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.50.0",
     "flow-typed": "^2.1.2",
     "history": "^4.6.1",
     "lodash": "^4.17.4",
-    "polished": "^1.0.2",
+    "polished": "^1.3.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
     "react-anime": "^0.3.4",
@@ -35,10 +37,15 @@
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-preset-flow": "^6.23.0",
-    "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "eslint-config-react-app": "^1.0.5",
+    "eslint-plugin-babel": "^4.1.1",
     "eslint-plugin-flowtype": "^2.33.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^20.0.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
-    "flow-bin": "^0.42.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-react-native": "^2.3.2",
     "react-scripts": "^1.0.3",
     "react-test-renderer": "^15.5.4"
   },
@@ -53,21 +60,16 @@
     "deploy-storybook": "storybook-to-ghpages"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:flowtype/recommended"
+    ]
   },
   "babel": {
     "parser": "babel-eslint",
     "plugins": [
       "flowtype",
-      [
-        "lodash",
-        {
-          "id": [
-            "lodash",
-            "recompose"
-          ]
-        }
-      ]
+      "polished"
     ],
     "rules": {
       "flowtype/boolean-style": [

@@ -2,13 +2,15 @@
 
 import styled from "styled-components";
 
-export const Path = styled.path.attrs({
+const Path = styled.path.attrs({
   d: props => props.pathData,
   className: "svg__path"
 })`
-  ${({ theme }: Theme) => `
+  ${({ theme }) => `
     fill: ${theme.color.background};
     stroke-width: 1px;
     stroke: ${theme.effect.lighten(0.2, theme.color.black)};
   `}
 `;
+
+export default Path;

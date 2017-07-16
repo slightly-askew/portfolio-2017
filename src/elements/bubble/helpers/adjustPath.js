@@ -7,9 +7,7 @@ type coordinates = {
   "y": number
 };
 
-const checkString = (s: mixed): string => (typeof s === "string" ? s : "");
-
-const prepareCoords = (adjustment: () => coordinates) => (
+const prepareCoords = (adjustment: (*) => coordinates) => (
   tuple: [number, number]
 ): string => {
   return Object.values(

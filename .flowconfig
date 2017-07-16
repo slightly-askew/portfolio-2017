@@ -3,9 +3,11 @@
 .*/styled-components/lib/.*
 .*/styled-components/dangerfile.js
 .*/stylelint/lib/.*
-.*/polished/src/.*
 .*/styled-componenets/src/.*
 .*/eslint-plugin-jsx-a11y/.*
+.*/polished/lib/.*
+.*/polished/src/.*
+.*/test/.*
 
 [include]
 
@@ -17,6 +19,7 @@ node_modules/styled-components/flow-typed/react-native.js
 node_modules/styled-components/flow-typed/glamor_vx.x.x.js
 node_modules/styled-components/flow-typed/lodash_v4.x.x.js
 node_modules/styled-components/flow-typed/inline-style-prefixer_vx.x.x.js
+node_modules/polished/flow-typed/npm/.*
 
 [options]
 

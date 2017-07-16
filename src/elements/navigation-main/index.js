@@ -13,7 +13,7 @@ const ActiveLi = addActiveState(DesktopLi);
 
 type props = {};
 
-export const MainNav = (props: {}) =>
+export const MainNav = (props: props) =>
   <Nav {...props}>
     <DesktopUl {...props}>
       <ActiveLi>

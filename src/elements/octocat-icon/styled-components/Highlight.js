@@ -1,6 +1,5 @@
 //@flow
 
-import React from "react";
 import styled, { css } from "styled-components";
 
 export const Highlight = styled.rect.attrs({
@@ -17,6 +16,6 @@ export const Highlight = styled.rect.attrs({
     transform: scaleX(0);
     transform-origin: 0px 340px;
     ${isActive && css`transform: scaleX(1);`};
-    
+
   `}
 `;

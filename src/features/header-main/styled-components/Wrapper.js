@@ -1,9 +1,8 @@
-//@flow
+// @flow
 
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.div`
-
+const Wrapper = styled.div`
   ${({ theme }: { theme: Theme }) => css`
 
     box-sizing: border-box;
@@ -23,5 +22,7 @@ export const Wrapper = styled.div`
       left: -5em;
       flex-shrink: 0;
     }
-  `}
+  `};
 `;
+
+export default Wrapper;

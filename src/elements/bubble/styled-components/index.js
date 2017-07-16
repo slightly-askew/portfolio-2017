@@ -5,4 +5,4 @@ export { TextComponent } from "./TextComponent";
 export { TextElement } from "./TextElement";
 export { Underline } from "./Underline";
 export { Divider } from "./Divider";
-export { Path } from "./Path";
+export { default as Path } from "./Path";

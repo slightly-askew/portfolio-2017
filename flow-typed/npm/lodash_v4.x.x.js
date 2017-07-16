@@ -1,5 +1,5 @@
-// flow-typed signature: 53b581d81115b53eaf3a74ae963c4f43
-// flow-typed version: ba3c3d2dca/lodash_v4.x.x/flow_>=v0.38.x <=v0.46.x
+// flow-typed signature: 965815c926d58b631e3746ecfe0bc204
+// flow-typed version: 0953311d72/lodash_v4.x.x/flow_>=v0.47.x
 
 declare module 'lodash' {
   declare type TemplateSettings = {
@@ -179,9 +179,9 @@ declare module 'lodash' {
     every<T: Object>(object: T, iteratee?: OIteratee<T>): bool;
     filter<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
     filter<A, T: {[id: string]: A}>(object: T, predicate?: OPredicate<A, T>): Array<A>;
-    find<T>(array: ?Array<T>, predicate?: Predicate<T>): T|void;
-    find<V, A, T: {[id: string]: A}>(object: T, predicate?: OPredicate<A, T>): V;
-    findLast<T>(array: ?Array<T>, predicate?: Predicate<T>): T|void;
+    find<T>(array: ?Array<T>, predicate?: Predicate<T>, fromIndex?: number): T|void;
+    find<V, A, T: {[id: string]: A}>(object: T, predicate?: OPredicate<A, T>, fromIndex?: number): V;
+    findLast<T>(array: ?Array<T>, predicate?: Predicate<T>, fromIndex?: number): T|void;
     findLast<V, A, T: {[id: string]: A}>(object: T, predicate?: OPredicate<A, T>): V;
     flatMap<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>): Array<U>;
     flatMap<T: Object, U>(object: T, iteratee?: OFlatMapIteratee<T, U>): Array<U>;
@@ -201,7 +201,7 @@ declare module 'lodash' {
     invokeMap<T>(array: ?Array<T>, path: ((value: T) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
     invokeMap<T: Object>(object: T, path: ((value: any) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
     keyBy<T, V>(array: ?Array<T>, iteratee?: ValueOnlyIteratee<T>): {[key: V]: ?T};
-    keyBy<V, A, T: {[id: string]: A}>(object: T, iteratee?: ValueOnlyIteratee<A>): {[key: V]: ?A};
+    keyBy<V, A, I, T: {[id: I]: A}>(object: T, iteratee?: ValueOnlyIteratee<A>): {[key: V]: ?A};
     map<T, U>(array: ?Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
     map<V, T: Object, U>(object: ?T, iteratee?: OMapIterator<V, T, U>): Array<U>;
     map(str: ?string, iteratee?: (char: string, index: number, str: string) => any): string;
@@ -303,7 +303,7 @@ declare module 'lodash' {
     isSafeInteger(value: any): bool;
     isSet(value: any): bool;
     isString(value: string): true;
-    isString(value: number|Function|void|null|Object|Array<any>): false;
+    isString(value: number|bool|Function|void|null|Object|Array<any>): false;
     isSymbol(value: any): bool;
     isTypedArray(value: any): bool;
     isUndefined(value: any): bool;
@@ -463,10 +463,10 @@ declare module 'lodash' {
     cond(pairs: NestedArray<Function>): Function;
     conforms(source: Object): Function;
     constant<T>(value: T): () => T;
-    defaultTo<T1:string|boolean|Object,T2>(value: T1, defaultValue: T2): T1;
+    defaultTo<T1:string|boolean|Object,T2>(value: T1, default: T2): T1;
     // NaN is a number instead of its own type, otherwise it would behave like null/void
-    defaultTo<T1:number,T2>(value: T1, defaultValue: T2): T1|T2;
-    defaultTo<T1:void|null,T2>(value: T1, defaultValue: T2): T2;
+    defaultTo<T1:number,T2>(value: T1, default: T2): T1|T2;
+    defaultTo<T1:void|null,T2>(value: T1, default: T2): T2;
     flow(...funcs?: Array<Function>): Function;
     flow(funcs?: Array<Function>): Function;
     flowRight(...funcs?: Array<Function>): Function;

@@ -11,11 +11,6 @@ type coordinates = {
   "y": number
 };
 
-type coord = {
-  "x"?: number,
-  "y"?: number
-};
-
 export default ({
   transforms,
   d,

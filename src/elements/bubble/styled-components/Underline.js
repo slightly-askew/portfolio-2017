@@ -8,7 +8,7 @@ export const Underline = styled.rect.attrs({
   y: ({ origin }) => origin.y - 4
 })`
   height: 9px;
-  fill: ${({ theme }: Theme) => theme.color.primary};
+  fill: ${({ theme }) => theme.color.primary};
   transform-origin: center left;
   transform: scaleX(0);
   will-change: transform;
