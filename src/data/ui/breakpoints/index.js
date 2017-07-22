@@ -2,7 +2,7 @@
 
 export default {
   main: {
-    width: "mobile"
+    device: "mobile"
   },
   mobileMenu: {
     mobileMenuWidth: 0
