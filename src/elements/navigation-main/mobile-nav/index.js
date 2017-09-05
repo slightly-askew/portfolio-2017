@@ -1,14 +1,20 @@
 //@flow
 import React from "react";
 
-type NavItem = {
+type LiItem = {
   +label: string,
   +type: "li" | "ul",
   +target: "string",
-  listItems?: NavItem[]
 }
 
-type NavStructure = NavItem[] | NavItem;
+type UlItem <U>= {
+  +label: string,
+  +type: "li" | "ul",
+  +target: "string",
+  +listItems: U[]
+}
+
+type NavStructure = Array<mixed>;
 
 type Props = {
   ui: {
@@ -22,16 +28,16 @@ type Props = {
 };
 type ReactElement = React$Component<*, *, *>
  | React$Element<*>;
-type ElementSet = ReactElement[] | ReactElement;
+type ElementSet = ReactElement[];
 
 //fetch element from an Array,
 //so that different elements may be used at different nested depths if needed.
 //If no element in array at requested depth,
 //the deepest element will be selected.
-const getElement = (
-  elementSet: ElementSet,
+const getElement = <E> (
+  elementSet: E[],
   depth: number = 0
-): ReactElement => {
+): E => {
   if (Array.isArray(elementSet)) {
     return elementSet[depth] || elementSet.slice.pop();
   } else {
@@ -40,15 +46,17 @@ const getElement = (
 };
 
 //return a <li>
-const selectLi = (el, item) => <el target={item.target}>{item.label}</el>;
+const selectLi = (El, item: LiItem, props) => {
+  return <El {...props} target={item.target}>{item.label}</El>
+};
 
 //return a <ul> and recurse the sortNav function on child elements
-const selectUl = (uls: ElementSet, lis: ElementSet, item, depth) => {
-  const el = getElement(uls, depth)
+const selectUl = (uls: ElementSet, lis: ElementSet, item: UlItem<*>, depth: number = 0, props) => {
+  const El = getElement(uls, depth)
   const children = item.listItems;
-  <el>
+  return <El {...props}>
     {sortNav(children, uls, lis, depth)}
-  </el>
+  </El>
 };
 
 //for each level of navigation, create the list elements
@@ -56,13 +64,14 @@ const sortNav = (
   navData: NavStructure,
   uls: ElementSet,
   lis: ElementSet,
-  depth: number = 0
+  depth: number = 0,
+  props
 ) => {
   return navData.map(n => {
     if (n.type === "li") {
-      return selectLi(getElement(lis, depth), n);
+      return selectLi(getElement(lis, depth), n, props);
     } else if (n.type === "ul") {
-      return selectUl(uls, lis, n, depth++);
+      return selectUl(uls, lis, n, depth++, props);
     } else {
       return new Error(
         `couldn't determine the navigation node of ${n.type},
@@ -74,7 +83,7 @@ const sortNav = (
 };
 
 const MobileNav = ({ ui, ...props }: Props) => {
-  const { mainNavigation, ...uiProps } = ui;
+  const { mainNavigation, ...NavProps } = ui;
 
   return <div />;
 };

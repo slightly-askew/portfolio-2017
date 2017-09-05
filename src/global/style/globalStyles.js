@@ -22,7 +22,7 @@ export default () => injectGlobal`
     font-size: 100%;
     line-height: 1;
     @media screen and (min-width: 320px) {
-        font-size: calc(1em + 0.5 * ( (100vw - 320px) / 60));
+        font-size: calc(1em + 0.5 * ((100vw - 320px) / 60));
         font-size: -webkit-calc(100% + 0.5 * (100vw - 20em) / 60);
     }
     @media screen and (min-width: 1280px) {
